@@ -11,7 +11,7 @@ export const HomeImagesFirstSection = ({ images }) => {
     return item.id === 1;
   });
   const params = new URL(
-    "http://localhost:3000/Product/categoryType/سامسونگ/?class=mobile"
+    "https://rjland.vercel.app/Product/categoryType/سامسونگ/?class=mobile"
   );
   return (
     <div>
@@ -75,7 +75,7 @@ export const HomeImagesThirdSection = ({ images }) => {
     return item.id === 21;
   });
   const params = new URL(
-    "http://localhost:3000/Product/categoryType/شیائومی /?class=mobile"
+    "https://rjland.vercel.app/Product/categoryType/شیائومی /?class=mobile"
   );
   return (
     <div>
@@ -141,7 +141,7 @@ export const HomeImagesFifthSection = ({ images }) => {
   });
 
   const params = new URL(
-    "http://localhost:3000/Product/categoryType/اپل /?class=handsfree"
+    "https://rjland.vercel.app/Product/categoryType/اپل /?class=handsfree"
   );
   return (
     <div className={`${styles.FifthSectionContainer} `}>
