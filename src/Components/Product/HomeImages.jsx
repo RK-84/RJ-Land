@@ -10,23 +10,25 @@ export const HomeImagesFirstSection = ({ images }) => {
   let result = images.filter((item) => {
     return item.id === 1;
   });
-  const params = new URL(
-    "https://rjland.vercel.app/Product/categoryType/سامسونگ/?class=mobile"
-  );
+
+  const rout = useRouter();
+
+  const clickHandler1 = (props) => {
+    rout.push(`/Product/categoryType/سامسونگ/?class=mobile`);
+  };
+
   return (
     <div>
-      <Link href={params}>
-        <div className={styles.FirstSectionContainer}>
-          <Image
-            priority
-            className={styles.homeImage}
-            fill
-            alt={result[0].name}
-            src={result[0].indexImageUrl}
-            sizes="100%"
-          />
-        </div>
-      </Link>
+      <div onClick={clickHandler1()} className={styles.FirstSectionContainer}>
+        <Image
+          priority
+          className={styles.homeImage}
+          fill
+          alt={result[0].name}
+          src={result[0].indexImageUrl}
+          sizes="100%"
+        />
+      </div>
     </div>
   );
 };
@@ -37,7 +39,7 @@ export const HomeImagesSecondSection = ({ images }) => {
   });
   const rout = useRouter();
 
-  const clickHandler = (props) => {
+  const clickHandler2 = (props) => {
     rout.push(`/Product/categoryType/${props}/?class=mobile`);
   };
   return (
@@ -49,7 +51,7 @@ export const HomeImagesSecondSection = ({ images }) => {
           return (
             <div
               key={item.id}
-              onClick={() => clickHandler(item.name)}
+              onClick={() => clickHandler2(item.name)}
               className={styles.SecondSection}
             >
               <Image
@@ -74,13 +76,16 @@ export const HomeImagesThirdSection = ({ images }) => {
   let result = images.filter((item) => {
     return item.id === 21;
   });
-  const params = new URL(
-    "https://rjland.vercel.app/Product/categoryType/شیائومی /?class=mobile"
-  );
+
+  const rout = useRouter();
+
+  const clickHandler = (props) => {
+    rout.push(`/Product/categoryType/شیائومی /?class=mobile`);
+  };
   return (
     <div>
-      <Link href={params}>
-        <div className={styles.FirstSectionContainer}>
+    
+        <div onClick={clickHandler()} className={styles.FirstSectionContainer}>
           <Image
             priority
             className={styles.homeImage}
@@ -90,7 +95,7 @@ export const HomeImagesThirdSection = ({ images }) => {
             src={result[0].indexImageUrl}
           />
         </div>
-      </Link>
+  
     </div>
   );
 };
@@ -140,12 +145,14 @@ export const HomeImagesFifthSection = ({ images }) => {
     return item.id === 3;
   });
 
-  const params = new URL(
-    "https://rjland.vercel.app/Product/categoryType/اپل /?class=handsfree"
-  );
+  const rout = useRouter();
+
+  const clickHandler3 = (props) => {
+    rout.push(`/Product/categoryType/اپل /?class=handsfree`);
+  };
   return (
     <div className={`${styles.FifthSectionContainer} `}>
-      <Link href={params} className={styles.FifthSection}>
+      <div onClick={clickHandler3()}  className={styles.FifthSection}>
         <Image
           className={styles.FifthHomeImage}
           fill
@@ -153,7 +160,7 @@ export const HomeImagesFifthSection = ({ images }) => {
           sizes="100%"
           src={result1[0].indexImageUrl}
         />
-      </Link>
+      </div>
       <Link href="Product/Class/console" className={styles.FifthSection}>
         <Image
           className={styles.FifthHomeImage}
@@ -337,7 +344,7 @@ export const HomeImagesTenthSection = ({ images }) => {
   let result2 = images.filter((item) => {
     return item.id === 23;
   });
-  const rout=useRouter()
+  const rout = useRouter();
   const clickHandler = (props) => {
     rout.push(`/Product/Class/laptop/?tl=${props}`);
   };
