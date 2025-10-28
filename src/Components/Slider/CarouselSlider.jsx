@@ -1,11 +1,12 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import Slider from "react-slick";
 import styles from "./CarouselSlider.module.css";
 import { NextArrowSlide, PrevArrowSlide } from "./CaruselSliderArrow";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Loading from "../Loading/Loading";
 
 const CarouselSlider = ({ imageSlider }) => {
   var settings = {
@@ -21,49 +22,54 @@ const CarouselSlider = ({ imageSlider }) => {
     nextArrow: <NextArrowSlide />,
     prevArrow: <PrevArrowSlide />,
   };
+  const [showLoading, setShowLoading] = useState(false);
   const rout = useRouter();
   const clickHandler = (props) => {
+    setShowLoading(true);
     rout.push(`/Product/categoryType/${props}/?class=mobile`);
   };
+
   return (
-    <Slider {...settings}>
-      {imageSlider.map((item) => {
-        if (item.id === 3 || item.id === 7|| item.id === 107) {
-          return (
-            <Link href={`/Product/Class/${item.name}`} key={item.id}>
-              <div className={styles.sliderContainer}>
+    <>
+      {showLoading && <Loading />}
+      <Slider {...settings}>
+        {imageSlider.map((item) => {
+          if (item.id === 3 || item.id === 7 || item.id === 107) {
+            return (
+              <Link href={`/Product/Class/${item.name}`} key={item.id}>
+                <div onClick={()=>setShowLoading(true)} className={styles.sliderContainer}>
+                  <Image
+                    priority
+                    className={styles.imageSlider}
+                    src={item.indexImageUrl}
+                    alt={item.name}
+                    fill
+                    sizes="100%"
+                  />
+                </div>
+              </Link>
+            );
+          } else {
+            return (
+              <div
+                key={item.id}
+                className={styles.sliderContainer}
+                onClick={() => clickHandler(item.name)}
+              >
                 <Image
                   priority
                   className={styles.imageSlider}
                   src={item.indexImageUrl}
                   alt={item.name}
-                  fill
                   sizes="100%"
-
+                  fill
                 />
               </div>
-            </Link>
-          );
-        } else {
-          return (
-            <div
-              key={item.id}
-              className={styles.sliderContainer}
-              onClick={() => clickHandler(item.name)}
-            >
-              <Image
-                priority
-                className={styles.imageSlider}
-                src={item.indexImageUrl}
-                alt={item.name}
-                  sizes="100%"
-                  fill
-              />
-            </div>
-          );
-        }
-      })}
-    </Slider>
+            );
+          }
+        })}
+      </Slider>
+    </>
   );
 };
 export default CarouselSlider;

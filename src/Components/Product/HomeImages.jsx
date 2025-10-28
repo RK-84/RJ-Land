@@ -1,32 +1,38 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import styles from "./HomeImages.module.scss";
 import Link from "next/link";
 import { BsPatchCheck } from "react-icons/bs";
 import { useRouter } from "next/navigation";
+import Loading from "../Loading/Loading";
 
-export const HomeImagesFirstSection = ({ images }) => {
+export const HomeImagesFirstSection = ({ images, id, linkName }) => {
   let result = images.filter((item) => {
-    return item.id === 1;
+    return item.id === id;
   });
-  const params = new URL(
-    "https://rjland.vercel.app/Product/categoryType/سامسونگ/?class=mobile"
-  );
+
+  const rout = useRouter();
+
+  const [showLoading, setShowLoading] = useState(false);
+  const clickHandler = () => {
+    setShowLoading(true);
+    rout.push(`/Product/categoryType/${linkName}/?class=mobile`);
+  };
+
   return (
     <div>
-      <Link href={params}>
-        <div className={styles.FirstSectionContainer}>
-          <Image
-            priority
-            className={styles.homeImage}
-            fill
-            alt={result[0].name}
-            src={result[0].indexImageUrl}
-            sizes="100%"
-          />
-        </div>
-      </Link>
+      {showLoading && <Loading />}
+      <div onClick={clickHandler} className={styles.FirstSectionContainer}>
+        <Image
+          priority
+          className={styles.homeImage}
+          fill
+          alt={result[0].name}
+          src={result[0].indexImageUrl}
+          sizes="100%"
+        />
+      </div>
     </div>
   );
 };
@@ -36,12 +42,15 @@ export const HomeImagesSecondSection = ({ images }) => {
     return item.bestMobile === true;
   });
   const rout = useRouter();
+  const [showLoading, setShowLoading] = useState(false);
 
   const clickHandler = (props) => {
+    setShowLoading(true);
     rout.push(`/Product/categoryType/${props}/?class=mobile`);
   };
   return (
     <div className={styles.mainContainer}>
+           {showLoading && <Loading />}
       <h3 className={styles.bestMobile}>برترین‌های موبایل</h3>
 
       <div className={styles.SecondSectionContainer}>
@@ -70,30 +79,6 @@ export const HomeImagesSecondSection = ({ images }) => {
   );
 };
 
-export const HomeImagesThirdSection = ({ images }) => {
-  let result = images.filter((item) => {
-    return item.id === 21;
-  });
-  const params = new URL(
-    "https://rjland.vercel.app/Product/categoryType/شیائومی /?class=mobile"
-  );
-  return (
-    <div>
-      <Link href={params}>
-        <div className={styles.FirstSectionContainer}>
-          <Image
-            priority
-            className={styles.homeImage}
-            fill
-            alt={result[0].name}
-            sizes="100%"
-            src={result[0].indexImageUrl}
-          />
-        </div>
-      </Link>
-    </div>
-  );
-};
 export const HomeImagesFourthSection = ({ images }) => {
   let result = images.filter((item) => {
     return item.bestLaptop === true;
@@ -140,12 +125,15 @@ export const HomeImagesFifthSection = ({ images }) => {
     return item.id === 3;
   });
 
-  const params = new URL(
-    "https://rjland.vercel.app/Product/categoryType/اپل /?class=handsfree"
-  );
+  const rout = useRouter();
+
+  const clickHandler = () => {
+    rout.push("/Product/categoryType/اپل/?class=handsfree");
+  };
+
   return (
     <div className={`${styles.FifthSectionContainer} `}>
-      <Link href={params} className={styles.FifthSection}>
+      <div onClick={clickHandler} className={styles.FifthSection}>
         <Image
           className={styles.FifthHomeImage}
           fill
@@ -153,7 +141,7 @@ export const HomeImagesFifthSection = ({ images }) => {
           sizes="100%"
           src={result1[0].indexImageUrl}
         />
-      </Link>
+      </div>
       <Link href="Product/Class/console" className={styles.FifthSection}>
         <Image
           className={styles.FifthHomeImage}
@@ -276,9 +264,11 @@ export const HomeImagesNinthSection = ({ images }) => {
   let result = images.filter((item) => {
     return item.digital === true;
   });
+  const [showLoading, setShowLoading] = useState(false);
 
   return (
     <div className={styles.mainContainerNinthSection}>
+          {showLoading && <Loading />}
       <h3 className={styles.title}>کالا های دیجیتال </h3>
 
       <div className={styles.DigitalContainer}>
@@ -289,9 +279,10 @@ export const HomeImagesNinthSection = ({ images }) => {
               item.id === 25 ||
               item.id === 26 ||
               item.id === 27 ||
-              item.id === 28 ? (
+              item.id === 28 ||
+              item.id === 29 ? (
                 <Link href={`/Product/Class/${item.linkName}`}>
-                  <div className={styles.Digital}>
+                  <div onClick={()=>setShowLoading(true)} className={styles.Digital}>
                     <Image
                       sizes="100%"
                       width={120}
@@ -307,7 +298,7 @@ export const HomeImagesNinthSection = ({ images }) => {
                 </Link>
               ) : (
                 <Link href={`/brand/${item.linkName}`}>
-                  <div className={styles.Digital}>
+                  <div  onClick={()=>setShowLoading(true)} className={styles.Digital}>
                     <Image
                       width={120}
                       sizes="100%"
@@ -337,7 +328,7 @@ export const HomeImagesTenthSection = ({ images }) => {
   let result2 = images.filter((item) => {
     return item.id === 23;
   });
-  const rout=useRouter()
+  const rout = useRouter();
   const clickHandler = (props) => {
     rout.push(`/Product/Class/laptop/?tl=${props}`);
   };

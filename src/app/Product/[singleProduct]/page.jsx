@@ -19,6 +19,7 @@ import Header from "@/Components/Header/Header";
 import MainMenu from "@/Components/Menu/MainMenu";
 import SearchAndBasket from "@/Components/Header/SearchAndBasket";
 
+
 async function getAllSingleProduct(props) {
   const response = await repository.Get(`products/${props}`);
   if (response.ok) {
@@ -44,6 +45,7 @@ const singleProduct = async (props) => {
   const category = await getAllSameCategory(data.category);
 
   return (
+
     <div>
       <div className={styles.searchAndBasketContainer}>
         <SearchAndBasket />

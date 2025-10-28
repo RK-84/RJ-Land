@@ -55,7 +55,7 @@
   outline: none;
   border-inline: 2px solid #12B1D1;
 }
-.mainContainer .MainFieldContainer .form__field:-moz-placeholder-shown ~ .form__label {
+.mainContainer .MainFieldContainer .form__field:-moz-placeholder ~ .form__label {
   top: 10px;
   border-right: none;
   border-left: none;

@@ -6,6 +6,8 @@ import { NextArrow } from "./CaruselArrow";
 import { PrevArrow } from "./CaruselArrow";
 import SlideCarouselCard from "./SlideCarouselCard";
 import styles from "./Carusel.module.css"
+import { useState } from "react";
+import Loading from "../Loading/Loading";
 const Carusel = (props) => {
   let result = props.data.filter((item) => {
       return item.stock !== 0;
@@ -67,7 +69,13 @@ const Carusel = (props) => {
     ]
   };
 
-  return (
+const [showLoading ,setShowLoading ]=useState(false)
+const clickHandler=()=>{
+  setShowLoading(true)
+}
+  return (  
+    <>
+    {showLoading && <Loading/>}
     <Slider
       {...settings}
       autoplay={false}
@@ -75,13 +83,15 @@ const Carusel = (props) => {
       focusOnSelect={false}
       rtl={true}
       slidesToScroll={1}
-    >
+      >
+    
       {result.map((item) => (
-        <div key={item.id} className={styles.SlideCarouselCardContainer} >
+        <div key={item.id} onClick={clickHandler} className={styles.SlideCarouselCardContainer} >
         <SlideCarouselCard  product={item} />
         </div>
       ))}
     </Slider>
+      </>
   );
 };
 

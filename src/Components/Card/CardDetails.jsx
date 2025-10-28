@@ -7,6 +7,7 @@ import { BsFilter } from "react-icons/bs";
 import { VscSettings } from "react-icons/vsc";
 import { RxCross2 } from "react-icons/rx";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import Loading from "../Loading/Loading";
 
 const CardDetails = ({ product }) => {
   const [state, setState] = useState("");
@@ -64,8 +65,6 @@ const CardDetails = ({ product }) => {
       }
     }
   }
-
-  
 
   let maxProducts = showProduct;
   let maxResult = [];
@@ -150,6 +149,12 @@ const CardDetails = ({ product }) => {
     }
     setShowCategories(SelectedCats);
   };
+
+  const [loading, setLoading] = useState(false);
+  const showLoading = () => {
+    setLoading(true);
+  };
+
   return (
     <div className={styles.cardDetailsConrainer}>
       <Suspense>
@@ -329,11 +334,15 @@ const CardDetails = ({ product }) => {
             </div>
           </div>
           <div>
-            <div className={styles.Card}>
-              {showProduct.map((item) => {
-                return <Card product={item} key={item.id} />;
-              })}
-            </div>
+            {loading ? (
+              <Loading />
+            ) : (
+              <div className={styles.Card} onClick={showLoading}>
+                {showProduct.map((item) => {
+                  return <Card product={item} key={item.id} />;
+                })}
+              </div>
+            )}
           </div>
         </div>
       </Suspense>

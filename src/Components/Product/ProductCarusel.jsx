@@ -17,6 +17,7 @@ import {
   HomeImagesTenthSection,
   HomeImagesThirdSection,
 } from "./HomeImages";
+import Loading from "../Loading/Loading";
 
 const ProductCarusel = ({ data, homeImages }) => {
   let result = data.filter((item) => {
@@ -37,7 +38,8 @@ const ProductCarusel = ({ data, homeImages }) => {
 
   return (
     <div>
-      <HomeImagesFirstSection images={homeImages} />
+      
+      <HomeImagesFirstSection images={homeImages} id={1} linkName="سامسونگ"/>
       <Suspense>
         <div className={styles.caruselContainer}>
           <div className={styles.titleCarusel}>
@@ -55,7 +57,7 @@ const ProductCarusel = ({ data, homeImages }) => {
         </div>
       </Suspense>
       <HomeImagesSecondSection images={homeImages} />
-      <HomeImagesThirdSection images={homeImages} />
+      <HomeImagesFirstSection images={homeImages} id={21} linkName="شیائومی"/>
       <Suspense>
         <div className={styles.caruselContainer}>
           <div className={styles.titleCarusel}>
