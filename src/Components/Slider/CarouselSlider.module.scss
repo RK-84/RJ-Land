@@ -23,7 +23,7 @@
     }
 
     @include Media(320px, 500px) {
-        height: 145px !important;
+        height: 155px !important;
     }
     @include Media(500px, 700px) {
         height: 200px !important;

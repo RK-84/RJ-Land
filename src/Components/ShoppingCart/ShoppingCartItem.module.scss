@@ -17,6 +17,8 @@ $delText: #8e9bbb;
         border: none;
         border-bottom: 1.5px solid #d1d6e3;
         border-radius: 0;
+
+        margin-bottom: 0px;
     }
 
     .removePrdContainer {
@@ -275,13 +277,17 @@ $delText: #8e9bbb;
             overflow: hidden;
 
 
+            @include Media(300px, 450px) {
 
+                flex-direction: unset;
+            }
 
 
             img {
                 @include Media(300px, 450px) {
-                    width: 125px !important;
-                    height: 125px !important;
+                    width: 130px !important;
+                    height: 130px !important;
+                    flex-direction: unset !important;
                 }
 
                 @include Media(450px, 600px) {
