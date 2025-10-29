@@ -63,8 +63,8 @@ const NonExistentSingleCard = ({ data, category }) => {
             </div>
           </div>
 
-          <div className={styles.productDetailsContainer}>
-            <div className={styles.productDetailsChild}>
+          <div className={styles.NonAvailabilityContainer}>
+            <div className={styles.NonAvailabilityChild}>
               <div className={styles.DetailsNonExistentContainer}>
                 <div className={styles.DetailsLine}></div>
                 <div>
