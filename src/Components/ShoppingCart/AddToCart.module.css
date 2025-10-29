@@ -13,20 +13,20 @@
 }
 @media ((min-width: 320px) and (max-width: 500px)) {
   .shoppingCartBtnContainer {
-    font-size: 12px;
-    padding: 0px 10px;
-    height: 37px;
+    font-size: 12px !important;
+    padding: 0px 10px !important;
+    height: 37px !important;
   }
 }
 @media ((min-width: 500px) and (max-width: 830px)) {
   .shoppingCartBtnContainer {
-    font-size: 14px;
-    height: 43px;
+    font-size: 14px !important;
+    height: 43px !important;
   }
 }
 @media ((min-width: 300px) and (max-width: 1500px)) {
   .shoppingCartBtnContainer {
-    margin-top: 0;
+    margin-top: 0 !important;
   }
 }
 
@@ -42,17 +42,17 @@
 }
 @media ((min-width: 320px) and (max-width: 460px)) {
   .textShoppingCart span {
-    font-size: 10px;
+    font-size: 10px !important;
   }
 }
 @media ((min-width: 460px) and (max-width: 600px)) {
   .textShoppingCart span {
-    font-size: 12px;
+    font-size: 12px !important;
   }
 }
 @media ((min-width: 600px) and (max-width: 850px)) {
   .textShoppingCart span {
-    font-size: 13.5px;
+    font-size: 13.5px !important;
   }
 }
 
@@ -65,16 +65,16 @@
 }
 @media ((min-width: 320px) and (max-width: 460px)) {
   .BsCartIcon {
-    font-size: 12px;
+    font-size: 12px !important;
   }
 }
 @media ((min-width: 460px) and (max-width: 600px)) {
   .BsCartIcon {
-    font-size: 14px;
+    font-size: 14px !important;
   }
 }
 @media ((min-width: 600px) and (max-width: 850px)) {
   .BsCartIcon {
-    font-size: 15.5px;
+    font-size: 15.5px !important;
   }
 }/*# sourceMappingURL=AddToCart.module.css.map */

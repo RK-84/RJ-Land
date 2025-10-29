@@ -22,8 +22,9 @@
         height: unset !important;
         border-radius: 17px;
 
-        @include Media(320px, 430px) {
-            height: 60px !important;
+        @include Media(320px, 500px) {
+            height: 87.5px !important;
+            border-radius: 12px;
       
           }
     }
@@ -44,8 +45,8 @@
     font-size: 26px;
     height: 65px;
 
-    @include Media(100px, 600px) {
-        font-size: 22px;
+    @include Media(320px, 600px) {
+        font-size: 20px;
 
     }
 }

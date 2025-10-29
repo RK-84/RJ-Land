@@ -22,11 +22,6 @@
     right: 2%;
   }
 }
-@media ((min-width: 320px) and (max-width: 500px)) {
-  .NextArrowSlide {
-    right: 3% !important;
-  }
-}
 
 .PrevArrowSlide {
   position: absolute;
@@ -45,17 +40,17 @@
   z-index: 1;
   color: #999999;
 }
-@media ((min-width: 300px) and (max-width: 500px)) {
-  .PrevArrowSlide {
-    right: 6% !important;
-  }
-}
 @media ((min-width: 500px) and (max-width: 700px)) {
   .PrevArrowSlide {
     right: 3% !important;
   }
 }
 
+@media ((min-width: 320px) and (max-width: 550px)) {
+  .arrow {
+    display: none !important;
+  }
+}
 @media ((min-width: 1000px) and (max-width: 1300px)) {
   .arrow {
     height: 9%;

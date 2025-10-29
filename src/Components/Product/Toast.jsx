@@ -3,7 +3,7 @@ import React from "react";
 import { toast, Toaster } from "sonner";
 import styles from "./Toast.module.css";
 import { CiBellOn } from "react-icons/ci";
-
+import { IoNotificationsOutline } from "react-icons/io5";
 export const NonexistentNotificationToast = () => {
   return (
     <div>
@@ -12,8 +12,8 @@ export const NonexistentNotificationToast = () => {
         toastOptions={{
           style: {
             background: "#6be981",
-
             color: "#ffff",
+            animation: "ease-in-out",
           },
         }}
       />
@@ -22,7 +22,7 @@ export const NonexistentNotificationToast = () => {
         onClick={() => toast.success("اطلاع رسانی با موفقیت ثبت شد")}
       >
         <p>موجود شد اطلاع بده</p>
-        <CiBellOn className={styles.notificationIcon} />
+        <IoNotificationsOutline className={styles.notificationIcon} />
       </div>
     </div>
   );

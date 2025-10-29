@@ -61,27 +61,28 @@ $ShText : rgb(34 60 120/1);
                 flex-basis: 57%;
                 padding-top: 30px;
 
+
                 @include Media(300px, 1000px) {
                     flex-basis: unset;
                 }
 
                 .name {
                     @include Media(950px, 1300px) {
-                        font-size: 1.5vw;
+                        font-size: 1.5vw !important;
                     }
 
                     @include Media(750px, 950px) {
-                        font-size: 15.6px;
+                        font-size: 15.6px !important;
                     }
 
 
                     @include Media(450px, 750px) {
-                        font-size: 14px;
+                        font-size: 14px !important;
                         width: fit-content;
                     }
 
                     @include Media(300px, 450px) {
-                        font-size: 12.5px;
+                        font-size: 12.5px !important;
                         width: fit-content;
                         line-height: unset;
 
@@ -105,17 +106,17 @@ $ShText : rgb(34 60 120/1);
                     color: $textColor;
 
                     @include Media(1000px, 1250px) {
-                        font-size: 12.5px;
+                        font-size: 12.5px !important;
                     }
 
                     @include Media(450px, 1000px) {
-                        font-size: 11px;
+                        font-size: 11px !important;
                     }
 
 
 
                     @include Media(300px, 450px) {
-                        font-size: 8.5px;
+                        font-size: 8.5px !important;
                         padding: 3% 0;
                     }
 
@@ -128,20 +129,20 @@ $ShText : rgb(34 60 120/1);
 
                     .comment {
                         @include Media(1000px, 1250px) {
-                            font-size: 13.5px;
+                            font-size: 13.5px !important;
                         }
 
                         @include Media(750px, 1000px) {
-                            font-size: 12.5px;
+                            font-size: 12.5px !important;
                         }
 
 
                         @include Media(450px, 750px) {
-                            font-size: 12px;
+                            font-size: 12px !important;
                         }
 
                         @include Media(300px, 450px) {
-                            font-size: 11px;
+                            font-size: 11px !important;
                         }
 
                         font-size: 15px;
@@ -156,20 +157,20 @@ $ShText : rgb(34 60 120/1);
                         font-weight: 600;
 
                         @include Media(1000px, 1250px) {
-                            font-size: 12.5px;
+                            font-size: 12.5px !important;
                         }
 
                         @include Media(750px, 1000px) {
-                            font-size: 11.5px;
+                            font-size: 11.5px !important;
                         }
 
 
                         @include Media(450px, 750px) {
-                            font-size: 10.5px;
+                            font-size: 10.5px !important;
                         }
 
                         @include Media(300px, 450px) {
-                            font-size: 9.5px;
+                            font-size: 9.5px !important;
                         }
 
                     }
@@ -204,20 +205,20 @@ $ShText : rgb(34 60 120/1);
                     font-size: 19px;
 
                     @include Media(1000px, 1250px) {
-                        font-size: 17px;
+                        font-size: 17px !important;
                     }
 
                     @include Media(750px, 1000px) {
-                        font-size: 15.5px;
+                        font-size: 15.5px !important;
                     }
 
 
                     @include Media(450px, 750px) {
-                        font-size: 13px;
+                        font-size: 13px !important;
                     }
 
                     @include Media(300px, 450px) {
-                        font-size: 12px;
+                        font-size: 12px !important;
                     }
 
                     .offerText {
@@ -226,20 +227,20 @@ $ShText : rgb(34 60 120/1);
 
                     i {
                         @include Media(1000px, 1250px) {
-                            font-size: 28px;
+                            font-size: 28px !important;
                         }
 
                         @include Media(750px, 1000px) {
-                            font-size: 24.5px;
+                            font-size: 24.5px !important;
                         }
 
 
                         @include Media(450px, 750px) {
-                            font-size: 20.5px;
+                            font-size: 20.5px !important;
                         }
 
                         @include Media(300px, 450px) {
-                            font-size: 17px;
+                            font-size: 17px !important;
                         }
 
                         font-size: 32px;
@@ -305,11 +306,11 @@ $ShText : rgb(34 60 120/1);
                 height: 30px;
 
                 @include Media(450px, 750px) {
-                    font-size: 12.5px;
+                    font-size: 12.5px !important;
                 }
 
                 @include Media(320px, 450px) {
-                    font-size: 12px;
+                    font-size: 12px !important;
                     height: 25px;
                 }
             }
@@ -335,12 +336,36 @@ $ShText : rgb(34 60 120/1);
             flex-basis: 23%;
             margin: 0 auto;
 
+            @include Media(320px, 550px) {
+                height: 62px !important;
+            }
+
+            @include Media(320px, 1000px) {
+                position: fixed;
+                bottom: 0;
+                right: 0;
+                flex-direction: row-reverse;
+                padding: 3px 1.7%;
+                background-color: #ffffff;
+                border-top: 1.5px solid rgb(211, 211, 211);
+                width: 100%;
+                margin: 0 auto;
+                display: flex;
+                height: 73px;
+                align-items: center;
+
+                z-index: 100;
+
+                justify-content: space-between;
+            }
 
             .productDetailsChild {
 
                 @include Media(1000px, 1500px) {
                     background-color: transparent;
                     border-radius: unset;
+                    width: 55%;
+                    border-bottom-left-radius: 200px;
 
                 }
 
@@ -353,7 +378,7 @@ $ShText : rgb(34 60 120/1);
 
                 @include Media(320px, 1000px) {
                     box-shadow: unset;
-                    padding: 23px 3%;
+                    padding: 0;
 
                 }
 
@@ -377,11 +402,11 @@ $ShText : rgb(34 60 120/1);
                         font-size: 17px;
 
                         @include Media(450px, 750px) {
-                            font-size: 15px;
+                            font-size: 15px !important;
                         }
 
                         @include Media(320px, 450px) {
-                            font-size: 13px;
+                            font-size: 13px !important;
                         }
                     }
 
@@ -395,7 +420,7 @@ $ShText : rgb(34 60 120/1);
                             height: 28px;
 
                             @include Media(320px, 750px) {
-                                font-size: 13px;
+                                font-size: 13px !important;
                             }
                         }
 
@@ -418,11 +443,11 @@ $ShText : rgb(34 60 120/1);
                             margin-right: 10px;
 
                             @include Media(450px, 750px) {
-                                font-size: 11px;
+                                font-size: 11px !important;
                             }
 
                             @include Media(320px, 450px) {
-                                font-size: 10px;
+                                font-size: 10px !important;
                             }
                         }
 
@@ -452,11 +477,11 @@ $ShText : rgb(34 60 120/1);
                         color: #3a3a3a;
 
                         @include Media(450px, 750px) {
-                            font-size: 11px;
+                            font-size: 11px !important;
                         }
 
                         @include Media(320px, 450px) {
-                            font-size: 10px;
+                            font-size: 10px !important;
                         }
                     }
 
@@ -516,20 +541,20 @@ $ShText : rgb(34 60 120/1);
                             color: #2a2a2a;
 
                             @include Media(320px, 450px) {
-                                font-size: 9px;
+                                font-size: 9px !important;
                             }
                         }
 
                         .price {
-                            font-size: 19px;
+                            font-size: 19px !important;
                             padding-right: 10px;
 
                             @include Media(450px, 750px) {
-                                font-size: 16px;
+                                font-size: 16px !important;
                             }
 
                             @include Media(320px, 450px) {
-                                font-size: 13px;
+                                font-size: 13px !important;
                             }
                         }
 
@@ -558,7 +583,7 @@ $ShText : rgb(34 60 120/1);
                                 @include Media(450px, 750px) {
                                     width: 23px;
                                     height: 14px;
-                                    font-size: 9.5px;
+                                    font-size: 9.5px !important;
                                 }
 
                                 @include Media(300px, 1500px) {
@@ -569,7 +594,7 @@ $ShText : rgb(34 60 120/1);
                                 @include Media(320px, 450px) {
                                     width: 20px;
                                     height: 13px;
-                                    font-size: 8.5px;
+                                    font-size: 8.5px !important;
 
                                 }
 
@@ -578,11 +603,11 @@ $ShText : rgb(34 60 120/1);
                                     font-size: 12px;
 
                                     @include Media(450px, 750px) {
-                                        font-size: 10px;
+                                        font-size: 10px !important;
                                     }
 
                                     @include Media(320px, 450px) {
-                                        font-size: 9px;
+                                        font-size: 9px !important;
                                     }
                                 }
                             }
@@ -596,15 +621,15 @@ $ShText : rgb(34 60 120/1);
 
                                 @include Media(300px, 1500px) {
                                     text-decoration-color: #95a0bb;
-                                    font-size: 14px;
+                                    font-size: 14px !important;
                                 }
 
                                 @include Media(450px, 750px) {
-                                    font-size: 13px;
+                                    font-size: 13px !important;
                                 }
 
                                 @include Media(320px, 450px) {
-                                    font-size: 11px;
+                                    font-size: 11px !important;
                                 }
                             }
 
@@ -622,7 +647,7 @@ $ShText : rgb(34 60 120/1);
 
                         .offPrcent {
                             @include Media(300px, 1500px) {
-                                display: none;
+                                display: none !important;
                             }
 
                             width: 150px;
@@ -670,7 +695,7 @@ $ShText : rgb(34 60 120/1);
                         font-weight: 600;
 
                         @include Media(450px, 750px) {
-                            font-size: 10px;
+                            font-size: 10px !important;
                         }
 
                         @include Media(320px, 450px) {
@@ -686,11 +711,11 @@ $ShText : rgb(34 60 120/1);
                         margin-left: 5px;
 
                         @include Media(450px, 750px) {
-                            font-size: 11px;
+                            font-size: 11px !important;
                         }
 
                         @include Media(320px, 450px) {
-                            font-size: 9px;
+                            font-size: 9px !important;
                         }
 
 
@@ -707,120 +732,31 @@ $ShText : rgb(34 60 120/1);
     }
 
 
-    .caruselContainer {
-        width: 100%;
-        height: fit-content;
-        border: 1px solid #f0f0f2;
-        border-radius: 25px;
+    .singleProductCarusel {
         margin: 60px auto;
         overflow: hidden;
         padding: 30px 20px;
 
-        @include Media(320px, 1500px) {
-            width: 89%;
+        @include Media(550px, 1500px) {
+            width: 89% !important;
+        }
+
+        @include Media(320px, 550px) {
+            width: 95% !important;
         }
 
         @include Media(320px, 1000px) {
-            margin: 0 auto 15px;
+            margin: 0 auto 15px !important;
         }
 
         @include Media(320px, 600px) {
-            padding: 20px;
+            padding: 20px !important;
 
-        }
-
-        .titleCarusel {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            height: 70px;
-            background-color: transparent;
-            font-weight: 600;
-            padding: 0 27px;
-
-            @include Media(320px, 600px) {
-                padding: 0 3px;
-                height: 44px;
-            }
-
-            p {
-                font-size: 20px;
-
-                @include Media(320px, 450px) {
-                    font-size: 12.5px !important;
-                }
-
-                @include Media(450px, 600px) {
-                    font-size: 13px !important;
-
-                }
-
-                @include Media(600px, 1100px) {
-                    font-size: 16.5px !important;
-
-                }
-
-                @include Media(1100px, 1500px) {
-                    font-size: 18.5px !important;
-
-                }
-
-            }
-
-            span {
-                font-size: 17px;
-
-                @include Media(320px, 450px) {
-                    font-size: 10.5px !important;
-                }
-
-                @include Media(450px, 600px) {
-                    font-size: 12px !important;
-
-                }
-
-                @include Media(600px, 1100px) {
-                    font-size: 15px !important;
-
-                }
-
-                @include Media(1100px, 1500px) {
-                    font-size: 16.5px !important;
-
-                }
-            }
-
-            .rjLand {
-                padding-right: 10px;
-            }
-
-            .ShowAll {
-                display: flex;
-                align-items: center;
-                font-size: 15px;
-                text-decoration: none;
-                color: $ShText;
-                height: fit-content;
-
-
-            }
-
-            .AiOutlineLeft {
-                @include Media(320px, 600px) {
-                    margin-right: 3px;
-                    font-size: 11.5px;
-                }
-
-                margin-right: 10px;
-                font-size: 14px;
-            }
         }
     }
 
 
 
-
-    .informationProductContainer {}
 }
 
 .searchAndBasketContainer {
@@ -844,5 +780,115 @@ $ShText : rgb(34 60 120/1);
 .Footer {
     @include Media(300px, 1000px) {
         display: none;
+    }
+}
+
+.productDetailsContainer {
+    flex-basis: 23%;
+    margin: 0 auto;
+
+
+    .productDetailsChild {
+
+        width: 100%;
+        height: fit-content;
+        border-radius: 15px;
+        box-shadow: 0px 1px 9px 0.5px #e9e9e9;
+        background-color: #ffffff;
+        padding: 23px 25px;
+
+
+    }
+}
+
+.DetailsNonExistentContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border-radius: 7px;
+    height: 45px;
+    width: 100%;
+    box-shadow: 0px 0px 6px 0px #d7d7d7;
+
+    @include Media(320px, 1500px) {
+        display: none;
+    }
+
+    .DetailsLine {
+        height: 1px;
+        width: 80px;
+        background-color: #909090;
+    }
+
+    .DetailsNon {
+        font-size: 14px;
+        padding: 0 22px;
+        font-weight: 600;
+        color: rgb(138, 138, 138);
+    }
+}
+
+.DetailsText {
+    width: 100%;
+    margin-top: 23px;
+    margin-bottom: 33px;
+
+    @include Media(320px, 1000px) {
+        display: none;
+    }
+
+    .substituteText {
+        font-weight: 600;
+    }
+
+    span {
+        color: #1d1d1d;
+        font-size: 14.5px;
+        text-align: justify;
+        line-height: 22px;
+
+        @include Media(1000px, 1500px) {
+            font-size: 13.5px;
+        }
+    }
+}
+
+.nonExistentContainer {
+    display: flex;
+    height: 165px;
+    width: 90%;
+    justify-content: end;
+    align-items: center;
+
+    @include Media(320px, 550px) {
+        height: 110px;
+    }
+
+    .non {
+        font-size: 18.5px;
+        font-weight: 600;
+        padding: 0 25px;
+        color: #9c9d9f;
+
+        @include Media(550px, 1000px) {
+            font-size: 17px;
+        }
+
+        @include Media(320px, 550px) {
+            font-size: 14.5px;
+        }
+    }
+
+    .line {
+        width: 104px;
+        height: 1.5px;
+        background-color: #b7b7b7;
+
+        @include Media(320px, 550px) {
+            width: 75px;
+
+
+        }
     }
 }

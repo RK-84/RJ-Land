@@ -16,9 +16,10 @@
   height: unset !important;
   border-radius: 17px;
 }
-@media ((min-width: 320px) and (max-width: 430px)) {
+@media ((min-width: 320px) and (max-width: 500px)) {
   .FirstSectionContainer .homeImage {
-    height: 60px !important;
+    height: 87.5px !important;
+    border-radius: 12px;
   }
 }
 
@@ -36,9 +37,9 @@
   font-size: 26px;
   height: 65px;
 }
-@media ((min-width: 100px) and (max-width: 600px)) {
+@media ((min-width: 320px) and (max-width: 600px)) {
   .bestMobile {
-    font-size: 22px;
+    font-size: 20px;
   }
 }
 

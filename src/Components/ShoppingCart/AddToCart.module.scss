@@ -17,19 +17,19 @@
     margin-top: 10px;
     cursor: pointer;
     @include Media(320px, 500px) {
-        font-size: 12px;
-        padding: 0px 10px;
-        height: 37px;
+        font-size: 12px !important;
+        padding: 0px 10px !important;
+        height: 37px !important;
 
     }
 
     @include Media(500px, 830px) {
-        font-size: 14px;
-        height: 43px;
+        font-size: 14px !important;
+        height: 43px !important;
     }
 
     @include Media(300px, 1500px) {
-        margin-top: 0;
+        margin-top: 0 !important;
     }
 
 
@@ -47,16 +47,16 @@
         font-weight: 600;
 
         @include Media(320px, 460px) {
-            font-size: 10px;
+            font-size: 10px !important;
         }
 
         @include Media(460px, 600px) {
-            font-size: 12px;
+            font-size: 12px !important;
 
         }
 
         @include Media(600px, 850px) {
-            font-size: 13.5px;
+            font-size: 13.5px !important;
         }
 
     }
@@ -71,16 +71,16 @@
     font-size: 17px;
 
     @include Media(320px, 460px) {
-        font-size: 12px;
+        font-size: 12px !important;
     }
 
     @include Media(460px, 600px) {
-        font-size: 14px;
+        font-size: 14px !important;
 
     }
 
     @include Media(600px, 850px) {
-        font-size: 15.5px;
+        font-size: 15.5px !important;
     }
 
 }

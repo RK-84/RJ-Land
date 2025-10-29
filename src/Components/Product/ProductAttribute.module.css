@@ -25,17 +25,17 @@
 }
 @media ((min-width: 750px) and (max-width: 1250px)) {
   .attContainer .attChild .attName, .attContainer .attChildEnd .attName {
-    font-size: 12px;
+    font-size: 12px !important;
   }
 }
 @media ((min-width: 450px) and (max-width: 750px)) {
   .attContainer .attChild .attName, .attContainer .attChildEnd .attName {
-    font-size: 10.5px;
+    font-size: 10.5px !important;
   }
 }
 @media ((min-width: 320px) and (max-width: 450px)) {
   .attContainer .attChild .attName, .attContainer .attChildEnd .attName {
-    font-size: 8.5px;
+    font-size: 8.5px !important;
   }
 }
 .attContainer .attChild .attMainText, .attContainer .attChildEnd .attMainText {
@@ -45,17 +45,17 @@
 }
 @media ((min-width: 750px) and (max-width: 1250px)) {
   .attContainer .attChild .attMainText, .attContainer .attChildEnd .attMainText {
-    font-size: 13.5px;
+    font-size: 13.5px !important;
   }
 }
 @media ((min-width: 450px) and (max-width: 750px)) {
   .attContainer .attChild .attMainText, .attContainer .attChildEnd .attMainText {
-    font-size: 12.5px;
+    font-size: 12.5px !important;
   }
 }
 @media ((min-width: 320px) and (max-width: 450px)) {
   .attContainer .attChild .attMainText, .attContainer .attChildEnd .attMainText {
-    font-size: 10.5px;
+    font-size: 10.5px !important;
   }
 }
 .attContainer .attChildEnd {

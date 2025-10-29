@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
-import styles from "./NonExistentSingleCard.module.css";
+import styles from "../../app/Product/[singleProduct]/singleProduct.module.css";
+import caruselStyles from "../../Components/Product/ProductCarusel.module.css";
 import ImageModal from "../Modal/ImageModal";
 import Link from "next/link";
 import { AiOutlineLeft } from "react-icons/ai";
@@ -87,12 +88,12 @@ const NonExistentSingleCard = ({ data, category }) => {
         </div>
 
         {data.category === "هوآوی " || data.category === "آنر" ? null : (
-          <div className={styles.caruselContainer}>
-            <div className={styles.titleCarusel}>
+          <div className={`${caruselStyles.caruselContainer} ${styles.singleProductCarusel}`}>
+            <div className={caruselStyles.titleCarusel}>
               <p>برند مشابه</p>
-              <Link href={`/brand/${data.category}`} className={styles.ShowAll}>
+              <Link href={`/brand/${data.category}`} className={caruselStyles.ShowAll}>
                 نمایش همه
-                <AiOutlineLeft className={styles.AiOutlineLeft} />
+                <AiOutlineLeft className={caruselStyles.AiOutlineLeft} />
               </Link>
             </div>
             <Carusel data={category} />

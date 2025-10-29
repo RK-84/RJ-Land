@@ -11,6 +11,14 @@
   margin-bottom: 4%;
   border: 1.5px solid #14a0de;
 }
+@media ((min-width: 320px) and (max-width: 550px)) {
+  .Container {
+    border-radius: 0px;
+    padding: 0;
+    border: none;
+    border-bottom: 1px solid #14a0de;
+  }
+}
 
 .contentContainer {
   color: #ffffff;
@@ -27,6 +35,12 @@
   font-size: 17px;
   font-weight: 600;
   margin-bottom: 35px;
+}
+@media ((min-width: 320px) and (max-width: 550px)) {
+  .contentContainer {
+    border-radius: 0;
+    margin-bottom: 3px;
+  }
 }
 .contentContainer .offerText {
   font-style: italic;

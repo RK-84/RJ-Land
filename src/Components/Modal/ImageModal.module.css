@@ -124,9 +124,19 @@
 .imagesProduct .containerModalIMages .childModalIMages .closeModalIMagesContainer .closeModalIMagesChild .officialImages h3 {
   font-size: 18.5px;
 }
+@media ((min-width: 320px) and (max-width: 600px)) {
+  .imagesProduct .containerModalIMages .childModalIMages .closeModalIMagesContainer .closeModalIMagesChild .officialImages h3 {
+    font-size: 15.5px;
+  }
+}
 .imagesProduct .containerModalIMages .childModalIMages .closeModalIMagesContainer .closeModalIMagesChild .closeIcon {
   font-size: 28px;
   color: #262626;
+}
+@media ((min-width: 320px) and (max-width: 600px)) {
+  .imagesProduct .containerModalIMages .childModalIMages .closeModalIMagesContainer .closeModalIMagesChild .closeIcon {
+    font-size: 23.5px;
+  }
 }
 .imagesProduct .containerModalIMages .childModalIMages .closeModalIMagesContainer .bunchPhotos {
   display: flex;

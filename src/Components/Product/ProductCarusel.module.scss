@@ -18,8 +18,11 @@ $ShText : rgb(34 60 120/1);
     overflow: hidden;
     padding: 30px 20px;
 
-    @include Media(320px, 700px) {
+    @include Media(320px, 550px) {
         padding: 20px 16px;
+        border: none;
+        border-radius: 0;
+        border-bottom: 1px solid $borderColor ;
 
     }
 
@@ -41,8 +44,8 @@ $ShText : rgb(34 60 120/1);
         p {
             font-size: 20px;
 
-            @include Media(100px, 600px) {
-                font-size: 14px !important;
+            @include Media(320px, 600px) {
+                font-size: 14.5px !important;
 
             }
 

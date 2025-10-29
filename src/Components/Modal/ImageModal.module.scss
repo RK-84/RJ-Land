@@ -145,12 +145,19 @@ $lightBlue: #14a0de;
                         h3 {
                             font-size: 18.5px;
 
+                            @include Media(320px, 600px) {
+                                font-size: 15.5px;
+                            }
                         }
                     }
 
                     .closeIcon {
                         font-size: 28px;
                         color: #262626;
+                        
+                        @include Media(320px, 600px) {
+                            font-size: 23.5px;
+                        }
                     }
                 }
 

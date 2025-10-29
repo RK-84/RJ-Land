@@ -26,16 +26,12 @@
         right: 2%;
     }
 
-    @include Media(320px, 500px) {
-        right: 3% !important;
-    }
+
 }
 
 
 .PrevArrowSlide {
-    @include Media(300px, 500px) {
-        right: 6% !important;
-    }
+
 
     @include Media(500px, 700px) {
         right: 3% !important;
@@ -60,7 +56,10 @@
 
 .arrow {
 
+    @include Media(320px, 550px) {
+        display: none !important;
 
+    }
     @include Media(1000px, 1300px) {
         height: 9%;
         width: 2.3%;

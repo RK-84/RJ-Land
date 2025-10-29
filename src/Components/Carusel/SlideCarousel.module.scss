@@ -18,6 +18,14 @@ $lightBlue :#14a0de;
     margin: 0 auto;
     margin-bottom: 4%;
     border: 1.5px solid $lightBlue;
+    @include Media(320px, 550px) {
+        border-radius: 0px;
+        padding: 0;
+        border: none;
+        border-bottom: 1px solid $lightBlue;
+
+
+    }
 }
 
 .contentContainer {
@@ -34,7 +42,10 @@ $lightBlue :#14a0de;
     font-size: 17px;
     font-weight: 600;
     margin-bottom: 35px;
-
+    @include Media(320px, 550px) {
+        border-radius: 0;
+        margin-bottom: 3px;
+    }
     .offerText {
         font-style: italic;
         display: flex;

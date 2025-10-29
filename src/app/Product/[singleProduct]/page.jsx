@@ -1,6 +1,7 @@
 import React, { Suspense } from "react";
 import * as repository from "../../../../RestConfig/RestRequest";
 import styles from "./singleProduct.module.scss";
+import caruselStyles from "../../../Components/Product/ProductCarusel.module.css";
 import Image from "next/image";
 import ImageModal from "@/Components/Modal/ImageModal";
 import ProductAttribute from "@/Components/Product/ProductAttribute";
@@ -64,7 +65,10 @@ const singleProduct = async (props) => {
             <Suspense>
               <div className={styles.descriptionContainer}>
                 <div className={styles.nameContainer}>
+                  <div style={{display:"flex" ,flexWrap:"wrap"}}>
                   <p className={styles.name}>{data.name}</p>
+
+                  </div>
                   <p className={styles.nameb}>{data.nameB}</p>
 
                   <div className={styles.commentContainer}>
@@ -215,21 +219,25 @@ const singleProduct = async (props) => {
             </Suspense>
           </div>
           <Suspense>
+            
+
             {data.category === "هوآوی" || data.category === "آنر" ? null : (
-              <div className={styles.caruselContainer}>
-                <div className={styles.titleCarusel}>
+              <div className={`${caruselStyles.caruselContainer}  ${styles.singleProductCarusel}`}>
+                <div className={caruselStyles.titleCarusel}>
                   <p>برند مشابه</p>
                   <Link
                     href={`/brand/${data.category}`}
-                    className={styles.ShowAll}
-                  >
+                    className={caruselStyles.ShowAll}
+                    >
                     <span> نمایش همه</span>
-                    <AiOutlineLeft className={styles.AiOutlineLeft} />
+                    <AiOutlineLeft className={caruselStyles.AiOutlineLeft} />
                   </Link>
                 </div>
                 <Carusel data={category} />
               </div>
             )}
+
+       
           </Suspense>
           <div className={styles.informationProductContainer}>
             <Suspense>

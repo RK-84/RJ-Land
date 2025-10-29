@@ -4,11 +4,12 @@
     border: 2px solid #00387b;
     display: flex;
     padding: 0 15px;
-
     align-items: center;
     border-radius: 10px;
-
     cursor: pointer;
+
+
+
 
 }
 
@@ -23,43 +24,63 @@
 .notificationIcon {
 
     color: #00387b;
-    font-size: 25px;
+    font-size: 22.5px;
     text-align: end;
 
 }
 
 
-.purchaseConfirmationContainer {
-    display: flex;
-    justify-content: center;
-    width: 96%;
-}
-
-.purchaseConfirmation {
-    color: #ffffff;
-    font-weight: 600;
-    display: flex;
-    margin-top: 15px;
-    font-size: 15.5px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    width: 100%;
-    height: 52px;
-    background-color: #223c78;
-    cursor: pointer;
-}
-
-@media ((min-width:600px) and (max-width:800px)) {
-    .purchaseConfirmation {
-        height: 42px;
-        font-size: 13.5px
+@media ((min-width:320px) and (max-width:1500px)) {
+    .notificationContainer {
+        background-color: #14a0de;
+        border: none;
     }
+
+    .notificationContainer p {
+        font-weight: 600;
+        font-size: 14.5px;
+        color: #ffffff;
+
+    }
+
+    .notificationIcon {
+        font-size: 21.5px;
+        color: #ffffff;
+        text-align: unset;
+    }
+
 }
 
-@media ((min-width:300px) and (max-width:600px)) {
-    .purchaseConfirmation {
-        height: 38px;
+@media ((min-width:320px) and (max-width:550px)) {
+    .notificationContainer {
+        height: 42px;
+    }
+
+    .notificationContainer p {
         font-size: 12px
+    }
+
+    .notificationIcon {
+        font-size: 18.5px;
+    }
+
+}
+
+
+
+
+@media ((min-width:1000px) and (max-width:1500px)) {
+    .notificationContainer {
+        height: 42px;
+        width: 70%;
+    }
+
+    .notificationContainer p {
+
+        font-size: 14px;
+    }
+
+    .notificationIcon {
+        font-size: 20px;
     }
 }

@@ -8,19 +8,19 @@
   position: unset !important;
   height: unset !important;
 }
-@media ((min-width: 100px) and (max-width: 999px)) {
+@media ((min-width: 450px) and (max-width: 999px)) {
   .imageSlider {
     border-radius: 22px;
   }
 }
-@media ((min-width: 320px) and (max-width: 450px)) {
+@media ((min-width: 320px) and (max-width: 500px)) {
   .imageSlider {
-    height: 118px !important;
+    height: 127px !important;
   }
 }
 @media ((min-width: 450px) and (max-width: 600px)) {
   .imageSlider {
-    height: 140px !important;
+    height: 145px !important;
   }
 }
 
