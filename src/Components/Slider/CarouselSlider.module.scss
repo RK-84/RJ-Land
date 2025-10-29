@@ -17,15 +17,17 @@
     position: unset !important;
     height: unset !important;
 
-    @include Media(450px, 999px) {
+    @include Media(700px, 999px) {
         border-radius: 22px;
+        height: 240px !important;
     }
 
     @include Media(320px, 500px) {
-        height: 127px !important;
-    }
-    @include Media(450px, 600px) {
         height: 145px !important;
+    }
+    @include Media(500px, 700px) {
+        height: 200px !important;
+
     }
 }
 

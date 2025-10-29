@@ -16,6 +16,11 @@
     width: 90%;
   }
 }
+@media ((min-width: 300px) and (max-width: 600px)) {
+  .container {
+    width: 100%;
+  }
+}
 
 .rightSide {
   flex-basis: 75%;
@@ -41,7 +46,11 @@
 }
 @media ((min-width: 300px) and (max-width: 600px)) {
   .yourShoppingCartContainer {
-    height: 25px;
+    height: 34px;
+    padding: 0 10px;
+    margin-bottom: 6px;
+    align-items: center;
+    box-shadow: 0px 1px 2px 1px rgba(235, 235, 235, 0.9019607843);
   }
 }
 
@@ -57,7 +66,7 @@
 }
 @media ((min-width: 300px) and (max-width: 600px)) {
   .yourShoppingCartTitle h3 {
-    font-size: 12px;
+    font-size: 13.5px;
   }
 }
 @media ((min-width: 600px) and (max-width: 800px)) {
@@ -76,7 +85,7 @@
 }
 @media ((min-width: 300px) and (max-width: 600px)) {
   .yourShoppingCartTitle span {
-    font-size: 8px;
+    font-size: 9px;
   }
 }
 @media ((min-width: 600px) and (max-width: 800px)) {
@@ -98,7 +107,7 @@
 }
 @media ((min-width: 300px) and (max-width: 600px)) {
   .removeAll {
-    font-size: 8px;
+    font-size: 9.5px;
   }
 }
 @media ((min-width: 600px) and (max-width: 800px)) {
@@ -120,7 +129,7 @@
 }
 @media ((min-width: 300px) and (max-width: 600px)) {
   .removeAll .trashIcon {
-    font-size: 11.5px;
+    font-size: 12.5px;
   }
 }
 @media ((min-width: 600px) and (max-width: 800px)) {

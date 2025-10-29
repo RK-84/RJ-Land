@@ -11,7 +11,7 @@
 .cardDetailsConrainer .showModalContainer {
   position: sticky;
   top: 88px;
-  background-color: rgba(254, 254, 254, 0.4588235294);
+  background-color: rgba(254, 254, 254, 0.8588235294);
 }
 .cardDetailsConrainer .showModal {
   display: none;
@@ -44,12 +44,12 @@
 }
 @media ((min-width: 320px) and (max-width: 500px)) {
   .cardDetailsConrainer .showModal .showFilter span, .cardDetailsConrainer .showModal .showSorting span {
-    font-size: 10px;
+    font-size: 11.5px;
   }
 }
 @media ((min-width: 320px) and (max-width: 500px)) {
   .cardDetailsConrainer .showModal .showFilter .sfIcon, .cardDetailsConrainer .showModal .showSorting .sfIcon {
-    font-size: 12px;
+    font-size: 13.5px;
   }
 }
 .cardDetailsConrainer .showModal .showSorting {

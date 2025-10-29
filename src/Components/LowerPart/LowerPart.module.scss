@@ -9,12 +9,12 @@
     background-color: #ffffff;
     box-shadow: 0px -1px 2px 0px #e1e1e1;
     bottom: 0;
-    height: 50px;
+    height: 54px;
     display: none;
     position: fixed;
     z-index: 100;
 
-    @include Media(100px, 1000px) {
+    @include Media(320px, 1000px) {
         display: flex;
         justify-content: space-around;
         align-items: center;
@@ -30,16 +30,16 @@
         cursor: pointer;
 
         p {
-            color: rgb(87, 87, 87);
+            color: rgb(137, 137, 137);
             font-size: 11px;
 
             @include Media(300px, 450px) {
-                font-size: 9px;
+                font-size: 10px;
 
             }
 
             @include Media(450px, 650px) {
-                font-size: 10px;
+                font-size: 11px;
 
             }
         }
@@ -49,15 +49,15 @@
 }
   .icon {
             font-size: 25px;
-            color: #787878;
+            color: #939393;
 
             @include Media(300px, 450px) {
-                font-size: 18px;
+                font-size: 21.5px;
 
             }
 
             @include Media(450px, 650px) {
-                font-size: 22px;
+                font-size: 24.5px;
 
             }
         }
@@ -80,12 +80,12 @@
         font-size: 14px;
 
         @include Media(300px, 450px) {
-            font-size: 11px;
+            font-size: 12px;
 
         }
 
         @include Media(450px, 650px) {
-            font-size: 12.5px;
+            font-size: 13.5px;
 
         }
 
@@ -103,7 +103,7 @@
         margin-left: 2px;
 
         @include Media(300px, 450px) {
-            font-size: 17px;
+            font-size: 17.5px;
 
 
         }

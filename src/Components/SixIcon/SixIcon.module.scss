@@ -27,7 +27,7 @@
     display: grid ;
     grid-template-columns: repeat(3, 1fr) ;
     grid-template-rows: repeat(2, 1fr) ;
-    gap: 8px;
+    gap: 20px;
 }
     .sixIcon {
         margin: 0 auto;
@@ -47,23 +47,23 @@
 
 
             @include Media(320px, 600px) {
-                width: 50px !important;
-                height: 50px !important;
-            }
-
-            @include Media(600px, 750px) {
                 width: 60px !important;
                 height: 60px !important;
             }
 
+            @include Media(600px, 750px) {
+                width: 65px !important;
+                height: 65px !important;
+            }
+
             @include Media(750px, 1100px) {
-                width: 70px !important;
-                height: 70px !important;
+                width: 75px !important;
+                height: 75px !important;
             }
 
             @include Media(1100px, 1350px) {
-                width: 75px !important;
-                height: 75px !important;
+                width: 80px !important;
+                height: 80px !important;
             }
         }
 
@@ -77,23 +77,24 @@
 
 
             @include Media(320px, 600px) {
-                font-size: 9px;
+                font-size: 10.5px;
+                padding-top: 8px;
 
             }
 
             @include Media(600px, 800px) {
-                font-size: 10px;
+                font-size: 12px;
 
 
             }
 
             @include Media(800px, 1350px) {
-                font-size: 12px;
+                font-size: 14px;
 
             }
 
             @include Media(1350px, 1550px) {
-                font-size: 12.5px;
+                font-size: 15px;
 
             }
         }

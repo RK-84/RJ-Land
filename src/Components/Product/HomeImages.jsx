@@ -50,7 +50,7 @@ export const HomeImagesSecondSection = ({ images }) => {
   };
   return (
     <div className={styles.mainContainer}>
-           {showLoading && <Loading />}
+      {showLoading && <Loading />}
       <h3 className={styles.bestMobile}>برترین‌های موبایل</h3>
 
       <div className={styles.SecondSectionContainer}>
@@ -268,7 +268,7 @@ export const HomeImagesNinthSection = ({ images }) => {
 
   return (
     <div className={styles.mainContainerNinthSection}>
-          {showLoading && <Loading />}
+      {showLoading && <Loading />}
       <h3 className={styles.title}>کالا های دیجیتال </h3>
 
       <div className={styles.DigitalContainer}>
@@ -282,7 +282,10 @@ export const HomeImagesNinthSection = ({ images }) => {
               item.id === 28 ||
               item.id === 29 ? (
                 <Link href={`/Product/Class/${item.linkName}`}>
-                  <div onClick={()=>setShowLoading(true)} className={styles.Digital}>
+                  <div
+                    onClick={() => setShowLoading(true)}
+                    className={styles.Digital}
+                  >
                     <Image
                       sizes="100%"
                       width={120}
@@ -298,7 +301,10 @@ export const HomeImagesNinthSection = ({ images }) => {
                 </Link>
               ) : (
                 <Link href={`/brand/${item.linkName}`}>
-                  <div  onClick={()=>setShowLoading(true)} className={styles.Digital}>
+                  <div
+                    onClick={() => setShowLoading(true)}
+                    className={styles.Digital}
+                  >
                     <Image
                       width={120}
                       sizes="100%"

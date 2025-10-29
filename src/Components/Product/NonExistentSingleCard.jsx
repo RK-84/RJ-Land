@@ -88,11 +88,16 @@ const NonExistentSingleCard = ({ data, category }) => {
         </div>
 
         {data.category === "هوآوی " || data.category === "آنر" ? null : (
-          <div className={`${caruselStyles.caruselContainer} ${styles.singleProductCarusel}`}>
+          <div
+            className={`${caruselStyles.caruselContainer} ${styles.singleProductCarusel}`}
+          >
             <div className={caruselStyles.titleCarusel}>
               <p>برند مشابه</p>
-              <Link href={`/brand/${data.category}`} className={caruselStyles.ShowAll}>
-                نمایش همه
+              <Link
+                href={`/brand/${data.category}`}
+                className={caruselStyles.ShowAll}
+              >
+                <span> نمایش همه</span>
                 <AiOutlineLeft className={caruselStyles.AiOutlineLeft} />
               </Link>
             </div>

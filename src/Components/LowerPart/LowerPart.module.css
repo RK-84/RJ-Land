@@ -3,12 +3,12 @@
   background-color: #ffffff;
   box-shadow: 0px -1px 2px 0px #e1e1e1;
   bottom: 0;
-  height: 50px;
+  height: 54px;
   display: none;
   position: fixed;
   z-index: 100;
 }
-@media ((min-width: 100px) and (max-width: 1000px)) {
+@media ((min-width: 320px) and (max-width: 1000px)) {
   .lowerPartContainer {
     display: flex;
     justify-content: space-around;
@@ -25,32 +25,32 @@
   cursor: pointer;
 }
 .lowerPartContainer .lowerPart p {
-  color: rgb(87, 87, 87);
+  color: rgb(137, 137, 137);
   font-size: 11px;
 }
 @media ((min-width: 300px) and (max-width: 450px)) {
   .lowerPartContainer .lowerPart p {
-    font-size: 9px;
+    font-size: 10px;
   }
 }
 @media ((min-width: 450px) and (max-width: 650px)) {
   .lowerPartContainer .lowerPart p {
-    font-size: 10px;
+    font-size: 11px;
   }
 }
 
 .icon {
   font-size: 25px;
-  color: #787878;
+  color: #939393;
 }
 @media ((min-width: 300px) and (max-width: 450px)) {
   .icon {
-    font-size: 18px;
+    font-size: 21.5px;
   }
 }
 @media ((min-width: 450px) and (max-width: 650px)) {
   .icon {
-    font-size: 22px;
+    font-size: 24.5px;
   }
 }
 
@@ -71,12 +71,12 @@
 }
 @media ((min-width: 300px) and (max-width: 450px)) {
   .LogSignUIContainer .link {
-    font-size: 11px;
+    font-size: 12px;
   }
 }
 @media ((min-width: 450px) and (max-width: 650px)) {
   .LogSignUIContainer .link {
-    font-size: 12.5px;
+    font-size: 13.5px;
   }
 }
 .LogSignUIContainer .link:hover {
@@ -91,7 +91,7 @@
 }
 @media ((min-width: 300px) and (max-width: 450px)) {
   .LogSignUIContainer .iconLogin {
-    font-size: 17px;
+    font-size: 17.5px;
   }
 }
 

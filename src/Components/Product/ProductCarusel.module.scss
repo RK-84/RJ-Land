@@ -94,7 +94,7 @@ $ShText : rgb(34 60 120/1);
             span {
                 font-size: 15px;
 
-                @include Media(100px, 600px) {
+                @include Media(320px, 600px) {
                     font-size: 10.5px !important;
 
                 }

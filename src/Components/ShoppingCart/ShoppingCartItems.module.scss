@@ -19,6 +19,10 @@
         display: block;
         width: 90%;
     }
+
+    @include Media(300px, 600px) {
+        width: 100%;
+    }
 }
 
 .rightSide {
@@ -43,7 +47,12 @@
     }
 
     @include Media(300px, 600px) {
-        height: 25px;
+        height: 34px;
+        padding: 0 10px;
+        margin-bottom: 6px;
+    
+        align-items: center;
+        box-shadow: 0px 1px 2px 1px #ebebebe6;
     }
 }
 
@@ -58,7 +67,7 @@
 
     h3 {
         @include Media(300px, 600px) {
-            font-size: 12px;
+            font-size: 13.5px;
         }
 
         @include Media(600px, 800px) {
@@ -75,7 +84,7 @@
         font-weight: 600;
 
         @include Media(300px, 600px) {
-            font-size: 8px;
+            font-size: 9px;
         }
 
         @include Media(600px, 800px) {
@@ -97,7 +106,7 @@
     cursor: pointer;
 
     @include Media(300px, 600px) {
-        font-size: 8px;
+        font-size: 9.5px;
     }
 
     @include Media(600px, 800px) {
@@ -118,7 +127,7 @@
         color: rgb(34, 34, 34);
 
         @include Media(300px, 600px) {
-            font-size: 11.5px;
+            font-size: 12.5px;
         }
 
         @include Media(600px, 800px) {
