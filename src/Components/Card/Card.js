@@ -4,13 +4,16 @@ import Image from "next/image";
 import Link from "next/link";
 import NonExistentCard from "./NonExistentCard";
 import { BsBoxSeam } from "react-icons/bs";
+import { TransitionWrapper } from "../Loading/TransitionWrapper";
 
 const Card = ({ product }) => {
   return (
-    <Link
+    <TransitionWrapper  href={`/Product/${product.id}`}>
+
+    <main
       style={{ textDecoration: "none", color: "#272951" }}
-      href={`/Product/${product.id}`}
-    >
+     
+      >
       {product.stock === 0 ? (
         <NonExistentCard product={product} />
       ) : (
@@ -18,11 +21,11 @@ const Card = ({ product }) => {
           <div className={`${styles.incredibleOfferImageContainer}`}>
             {product.incredibleOffers === true ? (
               <Image
-                className={`${styles.incredibleOfferImage}`}
-                alt="IncredibleOffer"
-                src="/IconImages/IncredibleOffer.png"
-                width={110}
-                height={15}
+              className={`${styles.incredibleOfferImage}`}
+              alt="IncredibleOffer"
+              src="/IconImages/IncredibleOffer.png"
+              width={110}
+              height={15}
               />
             ) : null}
           </div>
@@ -33,9 +36,9 @@ const Card = ({ product }) => {
                 {product.colorID.map((item) => {
                   return (
                     <div
-                      className={styles.color}
-                      key={item.id}
-                      style={{ backgroundColor: item.color }}
+                    className={styles.color}
+                    key={item.id}
+                    style={{ backgroundColor: item.color }}
                     ></div>
                   );
                 })}
@@ -48,7 +51,7 @@ const Card = ({ product }) => {
                 src={product.indexImageUrl}
                 width={195}
                 height={195}
-              />
+                />
             </div>
           </div>
           <div className={`${styles.productNameContainer} `}>
@@ -73,8 +76,8 @@ const Card = ({ product }) => {
                   {" "}
                   {Math.floor(
                     ((product.price - product.priceWithDiscount) /
-                      product.price) *
-                      100
+                    product.price) *
+                    100
                   )}
                 </span>
                 <span className={styles.prcent}>%</span>
@@ -103,7 +106,8 @@ const Card = ({ product }) => {
           )}
         </div>
       )}
-    </Link>
+    </main>
+      </TransitionWrapper>
   );
 };
 

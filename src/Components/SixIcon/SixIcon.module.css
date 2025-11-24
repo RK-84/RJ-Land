@@ -29,6 +29,7 @@
 .sixIconContainer .sixIcon {
   margin: 0 auto;
   width: 100%;
+  cursor: pointer;
 }
 .sixIconContainer .sixIcon .sixIconLink {
   text-decoration: none;

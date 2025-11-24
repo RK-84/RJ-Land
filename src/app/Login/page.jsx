@@ -1,19 +1,21 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useTransition } from "react";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import styles from "./Login.module.css";
-import { useDispatch } from "react-redux";
 import { useRouter } from "next/navigation";
-
+import * as repository from "../../../RestConfig/RestRequest";
 import Link from "next/link";
-
+import { FaRegEye } from "react-icons/fa";
 import PUincorrect from "./PUincorrect";
+import Loading from "@/Components/Loading/Loading";
+import { useDispatch } from "react-redux";
+import { setToken } from "@/Redux/Slices/UserSlice";
+import { FaRegEyeSlash } from "react-icons/fa";
 
-const LogIn = () => {
-  const dispatch = useDispatch();
+const LogIn = (props) => {
   const router = useRouter();
-
+  const dispatch = useDispatch();
   const validation = Yup.object({
     username: Yup.string().required("نام کاربری را وارد کنید"),
     password: Yup.string().required("پسورد  خود را وارد کنید"),
@@ -23,44 +25,41 @@ const LogIn = () => {
     password: "",
   };
   const [incorrect, setIncorrect] = useState(false);
-
+  const [status, setStatus] = useState(false);
   const submitHandler = (values) => {
-    console.log(values);
-    fetch("http://194.60.231.181:9095/users/login", {
-      method: "POST",
-      body: JSON.stringify(values),
-      headers: {
-
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Success: ", data);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-   ;
-
-    // repository.Post("users/login", values).then((response) => {
-    //   if (response.data.hasOwnProperty("token")) {
-    //     dispatch(setToken(response.data.token));
-    //     router.back(1);
-    //   } else {
-    //     setIncorrect(true);
-    //   }
-    // });
+    try {
+      repository
+        .Post("users/login", values)
+        .then((response) => {
+          return response;
+        })
+        .then((mainResponse) => {
+          setStatus(true);
+          dispatch(setToken(mainResponse.data.token));
+          router.back(1);
+        })
+        .catch((err) => {
+          setIncorrect(true);
+          setTimeout(() => {
+            setIncorrect(false);
+          }, 3000);
+        });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  return (
-    <div className={styles.mainContainer}>
-      <div className={styles.FieldContainer}>
-        {incorrect && <PUincorrect />}
+  const [show, setShow] = useState(false);
 
-        <p className={styles.title}> ورود </p>
+  return (
+    <main className={styles.mainContainer}>
+      <div className={styles.FieldContainer}>
+        {incorrect && (
+          <PUincorrect ErrorMessage="نام کاربری یا رمزعبور نادرست است" />
+        )}
+
+        <p className={styles.title}>ورود </p>
         <Formik
-          
           onSubmit={submitHandler}
           initialValues={FormFields}
           validationSchema={validation}
@@ -82,13 +81,24 @@ const LogIn = () => {
               />
             </div>
 
-            <div className={styles.form__group}>
+            <div className={`${styles.form__group} ${styles.password__field}`}>
               <Field
                 name="password"
-                type="password"
+                type={show ? "text" : "password"}
                 className={styles.form__field}
                 placeholder="کلمه عبور"
               />
+
+              {show ? (
+                <FaRegEyeSlash 
+                   className={styles.eyeIcon}
+                  onClick={() => setShow(!show)}/>
+              ) : (
+                <FaRegEye
+                  className={styles.eyeIcon}
+                  onClick={() => setShow(!show)}
+                />
+              )}
               <ErrorMessage
                 name="password"
                 component={"p"}
@@ -96,7 +106,7 @@ const LogIn = () => {
               />
             </div>
 
-            <button> ورود</button>
+            <button> {status ? "در حال انجام عملیات ..." : "ورود"}</button>
 
             <div className={styles.goSign}>
               <span>حساب کاربری ندارید؟</span>
@@ -105,8 +115,15 @@ const LogIn = () => {
           </Form>
         </Formik>
       </div>
-    </div>
+    </main>
   );
 };
 
 export default LogIn;
+
+
+
+
+
+
+

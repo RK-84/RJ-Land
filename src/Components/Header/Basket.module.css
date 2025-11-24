@@ -111,6 +111,7 @@
     color: rgb(45, 89, 150);
     font-weight: 600;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .leftIcon {

@@ -3,6 +3,7 @@ import * as repository from "../../../RestConfig/RestRequest";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./SixIcon.module.scss";
+import { TransitionWrapper } from "../Loading/TransitionWrapper";
 async function getAllSixIcon() {
   const response = await repository.Get("SixIcon");
   if (response.ok) {
@@ -15,7 +16,7 @@ async function getAllSixIcon() {
 const SixIcon = async () => {
   const data = await getAllSixIcon();
   return (
-    <div className={styles.mainContainer}>
+    <section className={styles.mainContainer}>
       <div className={styles.sixIconContainer}>
         {data.map((item) => {
           return (
@@ -32,27 +33,28 @@ const SixIcon = async () => {
                   <p>{item.iconName}</p>
                 </div>
               ) : (
-                <div className={styles.sixIcon} key={item.id}>
-                  <Link
-                    href={`/Product/specialCategory/${item.label}`}
-                    className={styles.sixIconLink}
-                  >
-                    <Image
-                      width={80}
-                      height={80}
-                      src={`/SixIcon/${item.url}`}
-                      alt={item.iconName}
-                      priority
-                    />
-                    <p>{item.iconName}</p>
-                  </Link>
-                </div>
+                <TransitionWrapper
+                  href={`/Product/specialCategory/${item.label}`}
+                >
+                  <div className={styles.sixIcon} key={item.id}>
+                    <div className={styles.sixIconLink}>
+                      <Image
+                        width={80}
+                        height={80}
+                        src={`/SixIcon/${item.url}`}
+                        alt={item.iconName}
+                        priority
+                      />
+                      <p>{item.iconName}</p>
+                    </div>
+                  </div>
+                </TransitionWrapper>
               )}
             </div>
           );
         })}
       </div>
-    </div>
+    </section>
   );
 };
 

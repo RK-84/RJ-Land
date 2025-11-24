@@ -8,7 +8,7 @@ import ProductAttribute from "@/Components/Product/ProductAttribute";
 import { BsShop } from "react-icons/bs";
 import { AiOutlineLeft, AiOutlineSetting } from "react-icons/ai";
 import { GoShieldCheck } from "react-icons/go";
-import {BsBoxSeam } from "react-icons/bs";
+import { BsBoxSeam } from "react-icons/bs";
 import InformationBar from "@/Components/Product/InformationBar";
 import Carusel from "@/Components/Carusel/Carusel";
 import Link from "next/link";
@@ -19,10 +19,10 @@ import Footer from "@/Components/Footer/Footer";
 import Header from "@/Components/Header/Header";
 import MainMenu from "@/Components/Menu/MainMenu";
 import SearchAndBasket from "@/Components/Header/SearchAndBasket";
-
+import { TransitionWrapper } from "@/Components/Loading/TransitionWrapper";
 
 async function getAllSingleProduct(props) {
-  const response = await repository.Get(`products/${props}`);
+  const response = await repository.Get(`myProducts/${props}`);
   if (response.ok) {
     const data = await response.json();
     return data;
@@ -32,7 +32,7 @@ async function getAllSingleProduct(props) {
 }
 
 async function getAllSameCategory(props) {
-  const response = await repository.Get(`products/category/${props}`);
+  const response = await repository.Get(`myProducts/category/${props}`);
   if (response.ok) {
     const data = await response.json();
     return data;
@@ -45,8 +45,8 @@ const singleProduct = async (props) => {
   const data = await getAllSingleProduct(context.singleProduct);
   const category = await getAllSameCategory(data.category);
 
-  return (
 
+  return (
     <div>
       <div className={styles.searchAndBasketContainer}>
         <SearchAndBasket />
@@ -61,13 +61,12 @@ const singleProduct = async (props) => {
         <NonExistentSingleCard data={data} category={category} />
       ) : (
         <div className={styles.mainContainer}>
-          <div className={styles.dataProductContainer}>
+          <main className={styles.dataProductContainer}>
             <Suspense>
               <div className={styles.descriptionContainer}>
                 <div className={styles.nameContainer}>
-                  <div style={{display:"flex" ,flexWrap:"wrap"}}>
-                  <p className={styles.name}>{data.name}</p>
-
+                  <div style={{ display: "flex", flexWrap: "wrap" }}>
+                    <p className={styles.name}>{data.name}</p>
                   </div>
                   <p className={styles.nameb}>{data.nameB}</p>
 
@@ -211,35 +210,32 @@ const singleProduct = async (props) => {
                     )}
 
                     <div className={styles.AddToCartButton}>
-                      <AddToCartButton data={data}  />
+                      <AddToCartButton data={data} />
                     </div>
                   </div>
                 </div>
               </div>
             </Suspense>
-          </div>
+          </main>
           <Suspense>
-            
-
             {data.category === "هوآوی" || data.category === "آنر" ? null : (
-              <div className={`${caruselStyles.caruselContainer}  ${styles.singleProductCarusel}`}>
+              <section
+                className={`${caruselStyles.caruselContainer}  ${styles.singleProductCarusel}`}
+              >
                 <div className={caruselStyles.titleCarusel}>
                   <p>برند مشابه</p>
-                  <Link
-                    href={`/brand/${data.category}`}
-                    className={caruselStyles.ShowAll}
-                    >
-                    <span> نمایش همه</span>
-                    <AiOutlineLeft className={caruselStyles.AiOutlineLeft} />
-                  </Link>
+                  <TransitionWrapper href={`/Product/categoryType/${data.category}`}>
+                    <div className={caruselStyles.ShowAll}>
+                      <span> نمایش همه</span>
+                      <AiOutlineLeft className={caruselStyles.AiOutlineLeft} />
+                    </div>
+                  </TransitionWrapper>
                 </div>
                 <Carusel data={category} />
-              </div>
+              </section>
             )}
-
-       
           </Suspense>
-          <div className={styles.informationProductContainer}>
+          <section className={styles.informationProductContainer}>
             <Suspense>
               <InformationBar
                 Att={data.attribute}
@@ -247,12 +243,12 @@ const singleProduct = async (props) => {
                 PrdId={data.id}
               />
             </Suspense>
-          </div>
+          </section>
         </div>
       )}
-      <div className={styles.Footer}>
+      <footer className={styles.Footer}>
         <Footer />
-      </div>
+      </footer>
     </div>
   );
 };

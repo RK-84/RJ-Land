@@ -4,7 +4,7 @@
     }
 }
 
-.FirstSectionContainer {
+.container {
     position: relative;
 
     margin-bottom: 3.5%;
@@ -17,7 +17,7 @@
 
     }
 
-    .homeImage {
+    .longImage {
         position: unset !important;
         height: unset !important;
         border-radius: 17px;
@@ -25,10 +25,10 @@
         @include Media(320px, 500px) {
             height: 87.5px !important;
             border-radius: 12px;
-      
-          }
+
+        }
     }
-   
+
 }
 
 .mainContainer {
@@ -111,43 +111,173 @@
 
 }
 
-.FifthSectionContainer {
-    display: flex;
+.ImageContainer {
+    position: relative;
     width: 100%;
-    justify-content: center;
-    gap: 3.5%;
     height: fit-content;
-    margin-bottom: 5%;
 
-    @include Media(100px, 800px) {
-        flex-direction: column;
-        gap: 5%;
+    @include Media(100px, 1100px) {
+        margin-top: 3%;
+    }
+
+    .Image {
+        position: unset !important;
+        height: unset !important;
+        border-radius: 17px;
 
     }
 
-    .FifthSection {
+    .LongImage{
+        position: unset !important;
+        height: unset !important;
+        border-radius: 17px;
 
-
-        position: relative;
-        width: 100%;
-        height: fit-content;
-
-        @include Media(100px, 1100px) {
-            margin-top: 3%;
-
-
-        }
-
-        .FifthHomeImage {
-            position: unset !important;
-            height: unset !important;
-            border-radius: 17px;
-
-        }
+        @include Media(320px, 500px) {
+            height: 87.5px !important;
+            border-radius: 12px;
+      
+          }
     }
 }
 
-.mainContainerNinthSection {
+.MainEleventhSectionContainer {
+    display: flex;
+    justify-content: center;
+
+    .EleventhSectionContainer {
+        display: flex;
+        justify-content: center;
+        gap: 3.5%;
+
+        margin-bottom: 5%;
+
+        height: fit-content;
+        width: 95%;
+
+        @include Media(1000px, 1460px) {
+            width: 98%;
+            gap: 20px;
+        }
+
+        .EleventhSection {
+            position: relative;
+            width: 100%;
+            height: fit-content;
+
+            .EleventhHomeImage {
+
+                position: unset !important;
+                height: unset !important;
+
+            }
+
+            p {
+
+                @include Media(1000px, 1460px) {
+                    height: 45px;
+                    font-size: 11px;
+                }
+
+                position: absolute;
+                bottom: -20%;
+                width: 100%;
+                background-color: #333333;
+                height: 55px;
+                font-size: 13.5px;
+                padding: 5px 8px;
+                color: white;
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+            }
+        }
+
+
+    }
+}
+
+.BarndsContainer {
+    display: flex;
+    justify-content: center;
+    margin: 59px auto;
+
+    @include Media(300px, 1000px) {
+        display: none;
+    }
+
+    .BrandsChild {
+        display: flex;
+        width: fit-content;
+        height: 135px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        border: 2px solid #d4d8e2;
+        overflow: hidden;
+
+
+
+        .BrandTitle {
+
+            width: 230px;
+            display: flex;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            flex-direction: column;
+            background-image: linear-gradient(90deg, #0079b1, #1b3570);
+
+
+
+            .Check {
+                font-size: 32px;
+
+                @include Media(1000px, 1250px) {
+                    font-size: 27px;
+
+                }
+            }
+
+            h3 {
+                font-size: 21px;
+                padding-top: 4px;
+
+                @include Media(1000px, 1250px) {
+                    font-size: 17px;
+                    padding-top: 2px;
+                }
+            }
+        }
+
+
+        .Brand {
+            width: 230px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-right: 1px solid #989eaa;
+
+            @include Media(1250px, 1580px) {
+                width: 190px;
+            }
+
+            @include Media(1000px, 1250px) {
+                width: 150px;
+            }
+
+            img {
+                @include Media(1000px, 1250px) {
+                    width: 110px;
+                    height: 80px;
+                }
+
+            }
+        }
+
+    }
+}
+
+.DigitalGoodsContainer {
     width: 70%;
     height: fit-content;
     display: block;
@@ -179,7 +309,7 @@
         }
     }
 
-    .DigitalContainer {
+    .DigitalGoodsChild {
         width: 100%;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -245,14 +375,8 @@
 
                 background: -webkit-radial-gradient(circle, hsla(211, 100%, 94%, 1) 0%, rgba(158, 213, 255, 0.819) 100%);
 
-
-
             }
-
-
-
         }
-
         .Digital:hover>.textDigital {
             display: flex;
             align-items: center;
@@ -263,142 +387,4 @@
         }
 
     }
-}
-
-.EighthSectionContainer {
-    display: flex;
-    justify-content: center;
-    margin: 59px auto;
-
-    @include Media(300px, 1000px) {
-        display: none;
-    }
-
-    .selectedBrandsContainer {
-        display: flex;
-        width: fit-content;
-        height: 135px;
-        align-items: center;
-        justify-content: center;
-        border-radius: 10px;
-        border: 2px solid #d4d8e2;
-        overflow: hidden;
-
-
-
-        .selectedBrands {
-
-            width: 230px;
-            display: flex;
-            height: 100%;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            flex-direction: column;
-            background-image: linear-gradient(90deg, #0079b1, #1b3570);
-
-
-
-            .Check {
-                font-size: 32px;
-
-                @include Media(1000px, 1250px) {
-                    font-size: 27px;
-
-                }
-            }
-
-            h3 {
-                font-size: 21px;
-                padding-top: 4px;
-
-                @include Media(1000px, 1250px) {
-                    font-size: 17px;
-                    padding-top: 2px;
-                }
-            }
-        }
-
-
-        .EighthSection {
-            width: 230px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-right: 1px solid #989eaa;
-
-            @include Media(1250px, 1580px) {
-                width: 190px;
-            }
-
-            @include Media(1000px, 1250px) {
-                width: 150px;
-            }
-
-            img {
-                @include Media(1000px, 1250px) {
-                    width: 110px;
-                    height: 80px;
-                }
-
-            }
-        }
-
-    }
-}
-
-.MainEleventhSectionContainer {
-    display: flex;
-    justify-content: center;
-
-    .EleventhSectionContainer {
-        @extend.FifthSectionContainer;
-        height: fit-content;
-        width: 95%;
-
-        @include Media(1000px, 1460px) {
-            width: 98%;
-            gap: 20px;
-        }
-
-        .EleventhSection {
-            position: relative;
-            width: 100%;
-            height: fit-content;
-
-            .EleventhHomeImage {
-
-                position: unset !important;
-                height: unset !important;
-
-            }
-
-            p {
-
-                @include Media(1000px, 1460px) {
-                    height: 45px;
-                    font-size: 11px;
-                }
-
-                position: absolute;
-                bottom: -20%;
-                width: 100%;
-                background-color: #333333;
-                height: 55px;
-                font-size: 13.5px;
-                padding: 5px 8px;
-                color: white;
-                border-bottom-left-radius: 10px;
-                border-bottom-right-radius: 10px;
-            }
-        }
-
-
-    }
-}
-
-
-
-.doubleContainer {
-    @include Media(100px, 1100px) {}
 }

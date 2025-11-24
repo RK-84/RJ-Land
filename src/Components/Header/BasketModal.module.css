@@ -117,6 +117,7 @@
     width: 100%;
     align-items: end;
     height: 145px;
+    cursor: pointer;
 }
 
 .priceContainer {

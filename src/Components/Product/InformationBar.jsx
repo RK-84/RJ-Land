@@ -9,7 +9,7 @@ import Link from "next/link";
 
 const InformationBar = ({ Att, data, stock , PrdId }) => {
   return (
-    <div className={styles.container}>
+    <section className={styles.container}>
       <div className={styles.informationBarContainer}>
         {Att.length !== 0 ? (
           <div>
@@ -176,7 +176,7 @@ const InformationBar = ({ Att, data, stock , PrdId }) => {
           </div>
         )}
       </div>
-    </div>
+    </section>
   );
 };
 

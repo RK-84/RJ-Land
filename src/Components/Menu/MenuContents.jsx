@@ -1,67 +1,54 @@
 "use client";
-import React from "react";
+import React, { useTransition } from "react";
 import styles from "./MenuContents.module.css";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
+import Loading from "../Loading/Loading";
 
 const MenuContents = ({ itemId }) => {
   const rout = useRouter();
+  const [isPending, startTransition] = useTransition();
 
-  const mobileLink = (props) => {
-    rout.push(`/Product/categoryType/${props}/?class=mobile`);
+  const handlerClick = (props) => {
+    startTransition(() => {
+      rout.push(`/Product/categoryType/${props.name}/?class=${props.class}`);
+    });
   };
-  const tabletLink = (props) => {
-    rout.push(`/Product/categoryType/${props}/?class=tablet`);
-  };
-  const smartWatchLink = (props) => {
-    rout.push(`/Product/categoryType/${props}/?class=smartWatch`);
-  };
-  const laptopLink = (props) => {
-    rout.push(`/Product/categoryType/${props}/?class=laptop`);
-  };
-  const computerLink = (props) => {
-    rout.push(`/Product/categoryType/${props}/?class=computer`);
-  };
-  const allInOneLink = (props) => {
-    rout.push(`/Product/categoryType/${props}/?class=allInOne`);
-  };
-  const consoleLink = (props) => {
-    rout.push(`/Product/categoryType/${props}/?class=console`);
-  };
-  const handsfreeLink = (props) => {
-    rout.push(`/Product/categoryType/${props}/?class=handsfree`);
+  const Link = (url) => {
+    startTransition(() => {
+      rout.push(url);
+    });
   };
   return (
     <>
+      {isPending && <Loading />}
       {itemId === 1 ? (
-        <div className={`${styles.contentsContainer} ${styles.gap}`}>
+        <nav className={`${styles.contentsContainer} ${styles.gap}`}>
           <div className={styles.contents}>
             <div>
               <span className={styles.khat}>|</span>
-              <Link
+              <div
+                onClick={() => Link("/Product/Class/mobile")}
                 className={styles.headerContent}
-                href="/Product/Class/mobile"
               >
- موبایل              </Link>
+                موبایل
+              </div>
             </div>
             <div
               className={styles.linkContent}
-              onClick={() => mobileLink("اپل")}
+              onClick={() => handlerClick({ name: "اپل", class: "mobile" })}
             >
-              اپل{" "}
+              اپل
             </div>
             <div
               className={styles.linkContent}
-              onClick={() => mobileLink("سامسونگ")}
+              onClick={() => handlerClick({ name: "سامسونگ", class: "mobile" })}
             >
-              {" "}
               سامسونگ
             </div>
             <div
               className={styles.linkContent}
-              onClick={() => mobileLink("شیائومی")}
+              onClick={() => handlerClick({ name: "شیائومی", class: "mobile" })}
             >
-              {" "}
               شیائومی
             </div>
           </div>
@@ -69,31 +56,29 @@ const MenuContents = ({ itemId }) => {
             <div>
               <span className={styles.khat}>|</span>
 
-              <Link
+              <div
                 className={styles.headerContent}
-                href="/Product/Class/tablet"
+                onClick={() => Link("/Product/Class/tablet")}
               >
                 تبلت
-              </Link>
+              </div>
             </div>
             <div
               className={styles.linkContent}
-              onClick={() => tabletLink("اپل")}
+              onClick={() => handlerClick({ name: "اپل", class: "tablet" })}
             >
-              اپل{" "}
+              اپل
             </div>
             <div
               className={styles.linkContent}
-              onClick={() => tabletLink("سامسونگ")}
+              onClick={() => handlerClick({ name: "سامسونگ", class: "tablet" })}
             >
-              {" "}
               سامسونگ
             </div>
             <div
               className={styles.linkContent}
-              onClick={() => tabletLink("شیائومی")}
+              onClick={() => handlerClick({ name: "شیائومی", class: "tablet" })}
             >
-              {" "}
               شیائومی
             </div>
           </div>
@@ -101,35 +86,37 @@ const MenuContents = ({ itemId }) => {
             <div>
               <span className={styles.khat}>|</span>
 
-              <Link
+              <div
                 className={styles.headerContent}
-                href="/Product/Class/smartWatch"
+                onClick={() => Link("/Product/Class/smartWatch")}
               >
                 ساعت هوشمند
-              </Link>
+              </div>
             </div>
             <div
               className={styles.linkContent}
-              onClick={() => smartWatchLink("اپل")}
+              onClick={() => handlerClick({ name: "اپل", class: "smartWatch" })}
             >
-              اپل{" "}
+              اپل
             </div>
             <div
               className={styles.linkContent}
-              onClick={() => smartWatchLink("سامسونگ")}
+              onClick={() =>
+                handlerClick({ name: "سامسونگ", class: "smartWatch" })
+              }
             >
-              {" "}
               سامسونگ
             </div>
             <div
               className={styles.linkContent}
-              onClick={() => smartWatchLink("شیائومی")}
+              onClick={() =>
+                handlerClick({ name: "شیائومی", class: "smartWatch" })
+              }
             >
-              {" "}
               شیائومی
             </div>
           </div>
-        </div>
+        </nav>
       ) : null}
 
       {itemId === 2 ? (
@@ -138,63 +125,63 @@ const MenuContents = ({ itemId }) => {
             <div>
               <span className={styles.khat}>|</span>
 
-              <Link
-                href="/Product/Class/laptop"
+              <div
                 className={styles.headerContent}
+                onClick={() => Link("/Product/Class/laptop")}
               >
                 لپ تاپ
-              </Link>
+              </div>
             </div>
             <div
               className={styles.linkContent}
-              onClick={() => laptopLink("مک بوک")}
+              onClick={() => handlerClick({ name: "مک بوک", class: "laptop" })}
             >
-              {" "}
               مک بوک
             </div>
             <div
               className={styles.linkContent}
-              onClick={() => laptopLink("msi")}
+              onClick={() => handlerClick({ name: "msi", class: "laptop" })}
             >
-              {" "}
-              لپ‌تاپ ام اس آی{" "}
+              لپ‌ تاپ ام س آی
             </div>
             <div
               className={styles.linkContent}
-              onClick={() => laptopLink("ایسوس")}
+              onClick={() => handlerClick({ name: "ایسوس", class: "laptop" })}
             >
-              {" "}
-              لپ‌تاپ ایسوس{" "}
+              لپ‌ تاپ ایسوس
             </div>
           </div>
           <div className={styles.contents}>
             <div>
               <span className={styles.khat}>|</span>
 
-              <Link
-                href="/Product/Class/computer"
+              <div
                 className={styles.headerContent}
+                onClick={() => Link("/Product/Class/computer")}
               >
                 کامپیوتر
-              </Link>
+              </div>
             </div>
             <div
               className={styles.linkContent}
-              onClick={() => allInOneLink("Hp")}
+              onClick={() => handlerClick({ name: "Hp", class: "allInOne" })}
             >
-              All in one{" "}
+              All in one
             </div>
             <div
               className={styles.linkContent}
-              onClick={() => computerLink("miniPc")}
+              onClick={() =>
+                handlerClick({ name: "miniPc", class: "computer" })
+              }
             >
-              Mini pc{" "}
+              Mini pc
             </div>
             <div
               className={styles.linkContent}
-              onClick={() => computerLink("assembledCase")}
+              onClick={() =>
+                handlerClick({ name: "assembledCase", class: "computer" })
+              }
             >
-              {" "}
               کیس اسمبل شده
             </div>
           </div>
@@ -202,32 +189,29 @@ const MenuContents = ({ itemId }) => {
             <div>
               <span className={styles.khat}>|</span>
 
-              <Link
-                href="/Product/Class/console"
+              <div
                 className={styles.headerContent}
+                onClick={() => Link("/Product/Class/console")}
               >
-                {" "}
                 کنسول بازی
-              </Link>
+              </div>
             </div>
             <div
               className={styles.linkContent}
-              onClick={() => consoleLink("ps5")}
+              onClick={() => handlerClick({ name: "ps5", class: "console" })}
             >
-              Ps5{" "}
+              Ps5
             </div>
             <div
               className={styles.linkContent}
-              onClick={() => consoleLink("ps4")}
+              onClick={() => handlerClick({ name: "ps4", class: "console" })}
             >
-              {" "}
               Ps4
             </div>
             <div
               className={styles.linkContent}
-              onClick={() => consoleLink("xbox")}
+              onClick={() => handlerClick({ name: "xbox", class: "console" })}
             >
-              {" "}
               Xbox
             </div>
           </div>
@@ -235,40 +219,40 @@ const MenuContents = ({ itemId }) => {
             <div>
               <span className={styles.khat}>|</span>
 
-              <Link
-                href="/Product/Class/handsfree"
+              <div
+                onClick={() => Link("/Product/Class/handsfree")}
                 className={styles.headerContent}
               >
-                {" "}
                 هندزفری
-              </Link>
+              </div>
             </div>
             <div
               className={styles.linkContent}
-              onClick={() => handsfreeLink("اپل")}
+              onClick={() => handlerClick({ name: "اپل", class: "handsfree" })}
             >
-              اپل{" "}
+              اپل
             </div>
             <div
               className={styles.linkContent}
-              onClick={() => handsfreeLink("سامسونگ")}
+              onClick={() =>
+                handlerClick({ name: "سامسونگ", class: "handsfree" })
+              }
             >
-              {" "}
               سامسونگ
             </div>
             <div
               className={styles.linkContent}
-              onClick={() => handsfreeLink("شیائومی")}
+              onClick={() =>
+                handlerClick({ name: "شیائومی", class: "handsfree" })
+              }
             >
-              {" "}
-              شیائومی{" "}
+              شیائومی
             </div>
             <div
               className={styles.linkContent}
-              onClick={() => handsfreeLink("انکر")}
+              onClick={() => handlerClick({ name: "انکر", class: "handsfree" })}
             >
-              {" "}
-              انکر{" "}
+              انکر
             </div>
           </div>
         </div>
@@ -276,7 +260,6 @@ const MenuContents = ({ itemId }) => {
 
       {itemId > 2 ? (
         <div className={styles.Developing}>
-
           <div className={styles.notification}>
             <h3>وب سایت در حال توسعه هست</h3>
             <h4>ممنون از صبر و شکیبایی شما</h4>

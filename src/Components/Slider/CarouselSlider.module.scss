@@ -33,9 +33,9 @@
 
 .dots {
     direction: rtl !important;
-    text-align: unset;
+    text-align: unset !important;
     width: 97.5% !important;
-    bottom: 7%;
+    bottom: 7% !important;
 
     @include Media(700px, 1000px) {
         bottom: 8% !important;

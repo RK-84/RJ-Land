@@ -4,15 +4,15 @@ import ShoppingCartItemCountB from "../ShoppingCart/ShoppingCartItemCountB";
 import Image from "next/image";
 import { BsShopWindow } from "react-icons/bs";
 import { TbBuildingWarehouse } from "react-icons/tb";
-import Link from "next/link";
+import { TransitionWrapper } from "../Loading/TransitionWrapper";
 
 const BasketModal = ({ data }) => {
   return (
-    <div>
+    <section>
       <div>
         {data.map((item) => {
           return (
-            <div className={styles.basketModal} key={new Date()}>
+            <div className={styles.basketModal} key={crypto.randomUUID()}>
               <div className={styles.rightSlide}>
                 <div className={styles.productNameContainer}>
                   <div className={styles.incredibleOffersLogo}>
@@ -53,8 +53,8 @@ const BasketModal = ({ data }) => {
               </div>
 
               <div className={styles.leftSlide}>
-                <Link
-                  href={`/Product/${item.id}`}
+                <TransitionWrapper href={`/Product/${item.id}`}>
+                    <div
                   className={styles.productImage}
                 >
                   <Image
@@ -63,7 +63,9 @@ const BasketModal = ({ data }) => {
                     alt={item.name}
                     src={item.indexImageUrl}
                   />
-                </Link>
+                </div>
+                </TransitionWrapper>
+              
                 {item.priceWithDiscount === 0 ? (
                   <div className={`${styles.priceContainer}`}>
                     <div className={styles.mainPrice}>
@@ -117,7 +119,7 @@ const BasketModal = ({ data }) => {
           );
         })}
       </div>
-    </div>
+    </section>
   );
 };
 

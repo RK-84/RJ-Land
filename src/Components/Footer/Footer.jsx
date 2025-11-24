@@ -7,7 +7,7 @@ import Image from "next/image";
 
 const Footer = async () => {
   return (
-    <div className={styles.footer}>
+    <footer className={styles.footer}>
       <div className={styles.headerFooter}>
         <Link href="/">
           <Image src="/logo/RJLand.png" width={125} height={125} alt="RJLand" className={styles.rjLogo} priority/>
@@ -22,7 +22,7 @@ const Footer = async () => {
       <div className={styles.FooterData}>
         <FooterData />
       </div>
-    </div>
+    </footer>
   );
 };
 

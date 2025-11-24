@@ -2,7 +2,7 @@ import React from "react";
 import * as repository from "../../../../../../RestConfig/RestRequest";
 import CardDetails from "@/Components/Card/CardDetails";
 async function getAllProduct(props) {
-  const response = await repository.Get(`products/type/${props}`);
+  const response = await repository.Get(`myProducts/type/${props}`);
   if (response.ok) {
     const data = await response.json();
     return data;
@@ -17,7 +17,6 @@ const ClassData = async (props) => {
 const gamingResult=data.filter(item=>{
   return item.gaming === true
 })
-console.log(SearchParams.th);
   return (
     <>
         {SearchParams.tl === "Xgaming" ?

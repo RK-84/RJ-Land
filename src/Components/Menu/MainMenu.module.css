@@ -38,22 +38,24 @@
   height: 50px;
   align-items: center;
 }
-.menuContainer .offContainer, .menuContainer .bestSellers {
+.menuContainer .headerTitles {
   display: flex;
   align-items: center;
+  cursor: pointer;
   color: #909394;
   text-decoration: none;
   width: -moz-fit-content;
   width: fit-content;
 }
-.menuContainer .offContainer span, .menuContainer .bestSellers span {
+.menuContainer .headerTitles span {
   padding-right: 7px;
   font-size: 13px;
   font-weight: 600;
 }
-.menuContainer .offContainer .MLogo, .menuContainer .bestSellers .MLogo {
+.menuContainer .headerTitles .MLogo {
   font-size: 19px;
 }
+
 .layer {
   display: none;
 }

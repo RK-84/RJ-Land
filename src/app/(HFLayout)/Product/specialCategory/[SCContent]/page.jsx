@@ -2,7 +2,7 @@ import React from "react";
 import * as repository from "../../../../../../RestConfig/RestRequest";
 import CardDetails from "@/Components/Card/CardDetails";
 async function getAllProduct(props) {
-  const response = await repository.Get(`products/${props}`);
+  const response = await repository.Get(`myProducts/${props}`);
   if (response.ok) {
     const data = await response.json();
     return data;

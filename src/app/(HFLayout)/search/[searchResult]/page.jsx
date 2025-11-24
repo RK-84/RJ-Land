@@ -4,7 +4,7 @@ import Image from "next/image";
 import CardDetails from "@/Components/Card/CardDetails";
 import styles from "./SearchResult.module.css";
 async function getSearchResult(props) {
-  const response = await repository.Get(`products/search/${props}`);
+  const response = await repository.Get(`myProducts/search/${props}`);
   if (response.ok) {
     const data = await response.json();
     return data;

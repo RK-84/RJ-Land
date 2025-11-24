@@ -3,7 +3,7 @@ import * as repository from "../../../RestConfig/RestRequest";
 import SlideCarousel from "../Carusel/SlideCarousel";
 
 async function getAllProductInc() {
-  const response = await repository.Get("products/incredibleOffers");
+  const response = await repository.Get("myProducts/incredibleOffers");
   if (response.ok) {
     const data = await response.json();
     return data;

@@ -26,5 +26,10 @@
     "slick-carousel": "^1.8.1",
     "sonner": "^1.7.2",
     "yup": "^1.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "24.10.1",
+    "@types/react": "19.2.5",
+    "typescript": "5.9.3"
   }
 }

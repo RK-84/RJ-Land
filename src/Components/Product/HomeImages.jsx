@@ -1,60 +1,51 @@
-"use client";
-import React, { useState } from "react";
-import Image from "next/image";
+"use client"
+import React, { useTransition } from "react";
 import styles from "./HomeImages.module.scss";
-import Link from "next/link";
-import { BsPatchCheck } from "react-icons/bs";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { BsPatchCheck } from "react-icons/bs";
 import Loading from "../Loading/Loading";
 
-export const HomeImagesFirstSection = ({ images, id, linkName }) => {
-  let result = images.filter((item) => {
-    return item.id === id;
-  });
-
+export const SingleImage = ({ imageUrl,name, url, specify }) => {
   const rout = useRouter();
-
-  const [showLoading, setShowLoading] = useState(false);
+  const [isPending, startTransition] = useTransition();
   const clickHandler = () => {
-    setShowLoading(true);
-    rout.push(`/Product/categoryType/${linkName}/?class=mobile`);
+    startTransition(() => {
+      rout.push(`/Product/${url}`);
+    });
   };
-
   return (
-    <div>
-      {showLoading && <Loading />}
-      <div onClick={clickHandler} className={styles.FirstSectionContainer}>
+    <>
+      {isPending && <Loading />}
+      <div onClick={clickHandler} className={styles.ImageContainer}>
         <Image
-          priority
-          className={styles.homeImage}
+          className={specify ? styles.LongImage : styles.Image}
           fill
-          alt={result[0].name}
-          src={result[0].indexImageUrl}
+          alt={name}
           sizes="100%"
+          priority
+          src={imageUrl}
         />
       </div>
-    </div>
+    </>
   );
 };
 
-export const HomeImagesSecondSection = ({ images }) => {
-  let result = images.filter((item) => {
-    return item.bestMobile === true;
-  });
+export const TheBest = ({ images, type, title }) => {
   const rout = useRouter();
-  const [showLoading, setShowLoading] = useState(false);
-
-  const clickHandler = (props) => {
-    setShowLoading(true);
-    rout.push(`/Product/categoryType/${props}/?class=mobile`);
+  const [isPending, startTransition] = useTransition();
+  const clickHandler = (linkName) => {
+    startTransition(() => {
+      rout.push(`/Product/categoryType/${linkName}/?class=${type}`);
+    });
   };
   return (
-    <div className={styles.mainContainer}>
-      {showLoading && <Loading />}
-      <h3 className={styles.bestMobile}>برترین‌های موبایل</h3>
+    <aside className={styles.mainContainer}>
+      {isPending && <Loading />}
+      <h3 className={styles.bestMobile}>{title}</h3>
 
       <div className={styles.SecondSectionContainer}>
-        {result.map((item) => {
+        {images.map((item) => {
           return (
             <div
               key={item.id}
@@ -75,203 +66,68 @@ export const HomeImagesSecondSection = ({ images }) => {
           );
         })}
       </div>
-    </div>
+    </aside>
   );
 };
 
-export const HomeImagesFourthSection = ({ images }) => {
-  let result = images.filter((item) => {
-    return item.bestLaptop === true;
-  });
-  const rout = useRouter();
-
-  const clickHandler = (props) => {
-    rout.push(`/Product/categoryType/${props}/?class=laptop`);
-  };
-  return (
-    <div className={styles.mainContainer}>
-      <h3 className={styles.bestMobile}>برترین‌های لپ‌تاپ</h3>
-
-      <div className={styles.SecondSectionContainer}>
-        {result.map((item) => {
-          return (
-            <div
-              key={item.id}
-              onClick={() => clickHandler(item.name)}
-              className={styles.SecondSection}
-            >
-              <Image
-                className={styles.SecondHomeImage}
-                width={180}
-                height={180}
-                alt={item.name}
-                sizes="100%"
-                src={item.indexImageUrl}
-              />
-              <p>{item.name}</p>
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  );
-};
-
-export const HomeImagesFifthSection = ({ images }) => {
-  let result1 = images.filter((item) => {
-    return item.id === 2;
-  });
-  let result2 = images.filter((item) => {
-    return item.id === 3;
-  });
-
-  const rout = useRouter();
-
-  const clickHandler = () => {
-    rout.push("/Product/categoryType/اپل/?class=handsfree");
-  };
-
-  return (
-    <div className={`${styles.FifthSectionContainer} `}>
-      <div onClick={clickHandler} className={styles.FifthSection}>
-        <Image
-          className={styles.FifthHomeImage}
-          fill
-          alt={result1[0].name}
-          sizes="100%"
-          src={result1[0].indexImageUrl}
-        />
-      </div>
-      <Link href="Product/Class/console" className={styles.FifthSection}>
-        <Image
-          className={styles.FifthHomeImage}
-          fill
-          alt={result2[0].name}
-          sizes="100%"
-          src={result2[0].indexImageUrl}
-        />
-      </Link>
-    </div>
-  );
-};
-
-export const HomeImagesSixthSection = ({ images }) => {
-  let result = images.filter((item) => {
-    return item.bestHandFree === true;
-  });
-
-  const rout = useRouter();
-
-  const clickHandler = (props) => {
-    rout.push(`/Product/categoryType/${props}/?class=handsfree`);
-  };
-  return (
-    <div className={styles.mainContainer}>
-      <h3 className={styles.bestMobile}>برترین‌های هندزفری</h3>
-
-      <div className={styles.SecondSectionContainer}>
-        {result.map((item) => {
-          return (
-            <div
-              key={item.id}
-              onClick={() => clickHandler(item.name)}
-              className={styles.SecondSection}
-            >
-              <Image
-                className={styles.SecondHomeImage}
-                width={180}
-                height={180}
-                alt={item.name}
-                sizes="100%"
-                src={item.indexImageUrl}
-              />
-              <p>{item.name}</p>
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  );
-};
-
-export const HomeImagesSeventhSection = ({ images }) => {
-  let result = images.filter((item) => {
-    return item.id === 4 || item.id === 5;
-  });
-  const rout = useRouter();
-
-  const clickHandler = (props) => {
-    rout.push(`/Product/categoryType/${props}/?class=laptop`);
-  };
-  return (
-    <div>
-      <div className={`${styles.FifthSectionContainer} ${styles.double} `}>
-        {result.map((item) => {
-          return (
-            <div
-              key={item.id}
-              className={styles.FifthSection}
-              onClick={() => clickHandler(item.name)}
-            >
-              <Image
-                sizes="100%"
-                className={styles.FifthHomeImage}
-                fill
-                alt={item.name}
-                src={item.indexImageUrl}
-              />
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  );
-};
-
-export const HomeImagesEighthSection = ({ images }) => {
+export const Brands = ({ images }) => {
   let result = images.filter((item) => {
     return item.selectedBrands === true;
   });
+  const rout = useRouter();
+  const [isPending, startTransition] = useTransition();
+  const clickHandler = (name) => {
+    startTransition(() => {
+      rout.push(`/Product/categoryType/${name}`);
+    });
+  };
 
   return (
-    <div className={styles.EighthSectionContainer}>
-      <div className={styles.selectedBrandsContainer}>
-        <div className={styles.selectedBrands}>
+    <section className={styles.BarndsContainer}>
+      {isPending && <Loading />}
+      <div className={styles.BrandsChild}>
+        <div className={styles.BrandTitle}>
           <BsPatchCheck className={styles.Check} />
           <h3>برندهای منتخب</h3>
         </div>
         {result.map((item) => {
           return (
-            <Link href={`/brand/${item.name}`} key={item.id}>
-              <div className={styles.EighthSection}>
-                <Image
-                  width={130}
-                  sizes="100%"
-                  height={100}
-                  alt={item.name}
-                  src={item.indexImageUrl}
-                />
-              </div>
-            </Link>
+            <div
+              onClick={() => clickHandler(item.name)}
+              className={styles.Brand}
+              key={item.id}
+            >
+              <Image
+                width={130}
+                sizes="100%"
+                height={100}
+                alt={item.name}
+                src={item.indexImageUrl}
+              />
+            </div>
           );
         })}
       </div>
-    </div>
+    </section>
   );
 };
 
-export const HomeImagesNinthSection = ({ images }) => {
+export const DigitalGoods = ({ images }) => {
   let result = images.filter((item) => {
     return item.digital === true;
   });
-  const [showLoading, setShowLoading] = useState(false);
-
+  const rout = useRouter();
+  const [isPending, startTransition] = useTransition();
+  const clickHandler = (url) => {
+    startTransition(() => {
+      rout.push(url);
+    });
+  };
   return (
-    <div className={styles.mainContainerNinthSection}>
-      {showLoading && <Loading />}
+    <section className={styles.DigitalGoodsContainer}>
+      {isPending && <Loading />}
       <h3 className={styles.title}>کالا های دیجیتال </h3>
-
-      <div className={styles.DigitalContainer}>
+      <div className={styles.DigitalGoodsChild}>
         {result.map((item) => {
           return (
             <div key={item.id}>
@@ -281,100 +137,57 @@ export const HomeImagesNinthSection = ({ images }) => {
               item.id === 27 ||
               item.id === 28 ||
               item.id === 29 ? (
-                <Link href={`/Product/Class/${item.linkName}`}>
-                  <div
-                    onClick={() => setShowLoading(true)}
-                    className={styles.Digital}
-                  >
-                    <Image
-                      sizes="100%"
-                      width={120}
-                      height={120}
-                      alt={item.name}
-                      src={`/Digital/${item.indexImageUrl}`}
-                    />
+                <div
+                  onClick={() =>
+                    clickHandler(`/Product/Class/${item.linkName}`)
+                  }
+                  className={styles.Digital}
+                >
+                  <Image
+                    sizes="100%"
+                    width={120}
+                    height={120}
+                    alt={item.name}
+                    src={`/Digital/${item.indexImageUrl}`}
+                  />
 
-                    <div className={styles.textDigital}>
-                      <span>{item.name}</span>
-                    </div>
+                  <div className={styles.textDigital}>
+                    <span>{item.name}</span>
                   </div>
-                </Link>
+                </div>
               ) : (
-                <Link href={`/brand/${item.linkName}`}>
-                  <div
-                    onClick={() => setShowLoading(true)}
-                    className={styles.Digital}
-                  >
-                    <Image
-                      width={120}
-                      sizes="100%"
-                      height={120}
-                      alt={item.name}
-                      src={`/Digital/${item.indexImageUrl}`}
-                    />
+                <div
+                  onClick={() => clickHandler(`/Product/categoryType/${item.linkName}`)}
+                  className={styles.Digital}
+                >
+                  <Image
+                    width={120}
+                    sizes="100%"
+                    height={120}
+                    alt={item.name}
+                    src={`/Digital/${item.indexImageUrl}`}
+                  />
 
-                    <div className={styles.textDigital}>
-                      <span>{item.name}</span>
-                    </div>
+                  <div className={styles.textDigital}>
+                    <span>{item.name}</span>
                   </div>
-                </Link>
+                </div>
               )}
             </div>
           );
         })}
       </div>
-    </div>
+    </section>
   );
 };
 
-export const HomeImagesTenthSection = ({ images }) => {
-  let result1 = images.filter((item) => {
-    return item.id === 22;
-  });
-  let result2 = images.filter((item) => {
-    return item.id === 23;
-  });
-  const rout = useRouter();
-  const clickHandler = (props) => {
-    rout.push(`/Product/Class/laptop/?tl=${props}`);
-  };
-  return (
-    <div>
-      <div className={`${styles.FifthSectionContainer} ${styles.double} `}>
-        <div
-          className={styles.FifthSection}
-          onClick={() => clickHandler("Xgaming")}
-        >
-          <Image
-            sizes="100%"
-            className={styles.FifthHomeImage}
-            fill
-            alt={result1[0].name}
-            src={result1[0].indexImageUrl}
-          />
-        </div>
-
-        <Link href="/Product/Class/handsfree" className={styles.FifthSection}>
-          <Image
-            className={styles.FifthHomeImage}
-            sizes="100%"
-            fill
-            alt={result2[0].name}
-            src={result2[0].indexImageUrl}
-          />
-        </Link>
-      </div>
-    </div>
-  );
-};
-
-export const HomeImagesEleventhSection = ({ images }) => {
+export const BlogImages = ({ images }) => {
   let result = images.filter((item) => {
     return item.linkName === "weblog";
   });
 
   return (
-    <div className={styles.MainEleventhSectionContainer}>
+    <article className={styles.MainEleventhSectionContainer}>
       <div className={styles.EleventhSectionContainer}>
         {result.map((item) => {
           return (
@@ -391,6 +204,6 @@ export const HomeImagesEleventhSection = ({ images }) => {
           );
         })}
       </div>
-    </div>
+    </article>
   );
 };

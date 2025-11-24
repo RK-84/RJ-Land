@@ -7,7 +7,6 @@ import { BsFilter } from "react-icons/bs";
 import { VscSettings } from "react-icons/vsc";
 import { RxCross2 } from "react-icons/rx";
 import { MdKeyboardArrowDown } from "react-icons/md";
-import Loading from "../Loading/Loading";
 
 const CardDetails = ({ product }) => {
   const [state, setState] = useState("");
@@ -150,13 +149,10 @@ const CardDetails = ({ product }) => {
     setShowCategories(SelectedCats);
   };
 
-  const [loading, setLoading] = useState(false);
-  const showLoading = () => {
-    setLoading(true);
-  };
+  
 
   return (
-    <div className={styles.cardDetailsConrainer}>
+    <section className={styles.cardDetailsConrainer}>
       <Suspense>
         <div className={styles.showModalContainer}>
           <div className={styles.showModal}>
@@ -329,24 +325,22 @@ const CardDetails = ({ product }) => {
               </div>
             </div>
             <div className={styles.length}>
-              <span>{product.length}</span>
+              <span>{product.length}</span> 
               <p>کالا</p>
             </div>
           </div>
           <div>
-            {loading ? (
-              <Loading />
-            ) : (
-              <div className={styles.Card} onClick={showLoading}>
+       
+              <div className={styles.Card}>
                 {showProduct.map((item) => {
                   return <Card product={item} key={item.id} />;
                 })}
               </div>
-            )}
+          
           </div>
         </div>
       </Suspense>
-    </div>
+    </section>
   );
 };
 

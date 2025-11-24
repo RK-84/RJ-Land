@@ -9,7 +9,7 @@ const AddToCart = ({ product }) => {
   
 
   return (
-    <div>
+    <section>
       <div
         className={styles.shoppingCartBtnContainer}
         onClick={() => dispatch(addItem(product))}
@@ -22,7 +22,7 @@ const AddToCart = ({ product }) => {
           <BsCart3 />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

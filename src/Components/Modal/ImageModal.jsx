@@ -21,7 +21,7 @@ const ImageModal = ({ images, namePrd, mainImage }) => {
   };
 
   return (
-    <div className={styles.imagesProduct}>
+    <section className={styles.imagesProduct}>
       {modal && (
         <>
           <div className={styles.containerModalIMages}>
@@ -126,7 +126,7 @@ const ImageModal = ({ images, namePrd, mainImage }) => {
           );
         })}
       </div>
-    </div>
+    </section>
   );
 };
 

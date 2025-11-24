@@ -7,7 +7,7 @@ const SlideCarouselCard = ({ product }) => {
   
   return (
     <Link href={`/Product/${product.id}`} className={styles.LinkContainer}>
-      <div className={styles.mainContainer}>
+      <main className={styles.mainContainer}>
         <div className={`${styles.incredibleOfferImageContainer}`}>
           {product.incredibleOffers === true ? (
             <Image
@@ -72,7 +72,7 @@ const SlideCarouselCard = ({ product }) => {
             </div>
           </div>
         )}
-      </div>
+      </main>
     </Link>
     
   );

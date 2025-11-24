@@ -103,6 +103,7 @@
 }
 .mainContainer .container .productName {
   text-decoration: none;
+  cursor: pointer;
 }
 .mainContainer .container .productName p {
   font-weight: 600;

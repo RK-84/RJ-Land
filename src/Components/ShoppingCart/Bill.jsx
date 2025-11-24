@@ -5,7 +5,7 @@ const Bill = ({ totalAmount, discountProducts  }) => {
   const totalSum = totalAmount - discountProducts;
 
   return (
-    <div className={styles.container}>
+    <section className={styles.container}>
       <h3 className={styles.title}>صورتحساب</h3>
       <div className={styles.bill}>
         <div className={styles.offPrcentNumber}>
@@ -38,7 +38,7 @@ const Bill = ({ totalAmount, discountProducts  }) => {
         </div>
        <PurchaseRegistrationToast/>
       </div>
-    </div>
+    </section>
   );
 };
 

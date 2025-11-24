@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./ProductAttribute.module.scss";
 const ProductAttribute = ({ Att }) => {
   return (
-    <div>
+    <aside>
       <div className={styles.attContainer}>
         <div className={styles.attChild}>
           <span className={styles.attMainText}>سیستم عامل :</span>
@@ -40,7 +40,7 @@ const ProductAttribute = ({ Att }) => {
           <span className={styles.attName}>{Att.ram}</span>
         </div>
       </div>
-    </div>
+    </aside>
   );
 };
 

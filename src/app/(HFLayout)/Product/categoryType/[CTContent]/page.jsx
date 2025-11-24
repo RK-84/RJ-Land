@@ -2,7 +2,7 @@ import React from "react";
 import * as repository from "../../../../../../RestConfig/RestRequest";
 import CardDetails from "@/Components/Card/CardDetails";
 async function getAllCategoryType(props) {
-  const response = await repository.Get(`products/category/${props}`);
+  const response = await repository.Get(`myProducts/category/${props}`);
   if (response.ok) {
     const data = await response.json();
     return data;
@@ -20,7 +20,8 @@ const CTContent = async (props) => {
   });
   return (
     <div>
-      <CardDetails product={result} />
+      {SearchParams.class ? <CardDetails product={result} /> :  <CardDetails product={data} />}
+     
     </div>
   );
 };

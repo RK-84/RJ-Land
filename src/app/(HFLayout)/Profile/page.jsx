@@ -21,6 +21,8 @@ const profile = () => {
         mobilenumber: jwtDecode(jwt.token).mobilenumber,
         email: jwtDecode(jwt.token).email,
       });
+    }else{
+      rout.push("/Login")
     }
   }, []);
 

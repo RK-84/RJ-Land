@@ -63,6 +63,7 @@
         }
 
         .headerContent {
+
             @include Media(500px, 740px) {
                 font-size: 14.5px;
 
@@ -75,6 +76,8 @@
 
             }
 
+            cursor: pointer;
+            display: inline-block;
             font-size: 17px;
             text-decoration: none;
             color: rgb(30, 30, 30);
@@ -112,6 +115,7 @@
     @include Media(320px, 450px) {
         gap: 25px 0;
     }
+
     @include Media(450px, 650px) {
         gap: 25px 0;
     }

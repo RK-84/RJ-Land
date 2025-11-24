@@ -7,7 +7,10 @@ import styles from "./Signup.module.scss";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { setToken } from "@/Redux/Slices/UserSlice";
-const SignUp = () => {
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
+import { useState } from "react";
+import PUincorrect from "../Login/PUincorrect";
+const SignUp = (props) => {
   const dispatch = useDispatch();
   const router = useRouter();
   const validation = Yup.object({
@@ -38,6 +41,8 @@ const SignUp = () => {
     password: "",
     email: "",
   };
+  const [incorrect, setIncorrect] = useState(false);
+  const [status, setStatus] = useState(false);
 
   const submitHandler = (values) => {
     console.log(values);
@@ -47,23 +52,29 @@ const SignUp = () => {
       .then((response) => {
         console.log(response.data);
         if (response.data.id === 0) {
-          alert("نام کاربری وجود دارد !!");
+          setIncorrect(true);
+          setTimeout(() => {
+            setIncorrect(false);
+          }, 3000);
         } else {
+          setStatus(true);
           repository
             .Post("users/login", values)
 
             .then((loginResponse) => {
               dispatch(setToken(loginResponse.data.token));
-              router.push("/Profile");
+              router.back(1);
             });
         }
       });
   };
+  const [show, setShow] = useState(false);
 
   return (
     <>
-      <div className={styles.mainContainer}>
+      <main className={styles.mainContainer}>
         <div className={styles.MainFieldContainer}>
+          {incorrect && <PUincorrect ErrorMessage="نام کاربری موجود هست" />}
           <p className={styles.title}> ثبت نام </p>
 
           <Formik
@@ -131,13 +142,26 @@ const SignUp = () => {
                   />
                 </div>
 
-                <div className={styles.form__group}>
+                <div
+                  className={`${styles.form__group} ${styles.password__field}`}
+                >
                   <Field
                     name="password"
-                    type="password"
+                    type={show ? "text" : "password"}
                     className={styles.form__field}
                     placeholder="کلمه عبور"
                   />
+                  {show ? (
+                    <FaRegEyeSlash
+                      className={styles.eyeIcon}
+                      onClick={() => setShow(!show)}
+                    />
+                  ) : (
+                    <FaRegEye
+                      className={styles.eyeIcon}
+                      onClick={() => setShow(!show)}
+                    />
+                  )}
                   <ErrorMessage
                     name="password"
                     component={"p"}
@@ -159,7 +183,8 @@ const SignUp = () => {
                   />
                 </div>
               </div>
-              <button type="submit">ثبت نام</button>
+
+              <button>{status ? "در حال انجام عملیات ..." : "ثبت نام"}</button>
 
               <div className={styles.goSign}>
                 <span>حساب کاربری دارید؟</span>
@@ -168,7 +193,7 @@ const SignUp = () => {
             </Form>
           </Formik>
         </div>
-      </div>
+      </main>
     </>
   );
 };

@@ -1,12 +1,29 @@
 "use client";
-import React from "react";
+import React, { useTransition } from "react";
 import { toast, Toaster } from "sonner";
 import styles from "./Toast.module.css";
 import { CiBellOn } from "react-icons/ci";
 import { IoNotificationsOutline } from "react-icons/io5";
+import { useSelector } from "react-redux";
+import { useRouter } from "next/navigation";
+import Loading from "../Loading/Loading";
 export const NonexistentNotificationToast = () => {
+  const jwt = useSelector((state) => state.Users);
+  const [isPending , startTransition]=useTransition()
+    const rout = useRouter();
+  
+  const ToasT=()=>{
+    if (jwt.token) {
+      toast.success("اطلاع رسانی با موفقیت ثبت شد")
+    }else{
+startTransition(()=>{
+  rout.push("/Login?Notification=true")
+})
+    }
+  }
   return (
     <div>
+      {isPending && <Loading/>}
       <Toaster
         dir="rtl"
         toastOptions={{
@@ -19,7 +36,7 @@ export const NonexistentNotificationToast = () => {
       />
       <div
         className={styles.notificationContainer}
-        onClick={() => toast.success("اطلاع رسانی با موفقیت ثبت شد")}
+        onClick={ToasT}
       >
         <p>موجود شد اطلاع بده</p>
         <IoNotificationsOutline className={styles.notificationIcon} />

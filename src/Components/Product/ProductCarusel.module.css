@@ -79,6 +79,7 @@
   color: rgb(34, 60, 120);
   height: -moz-fit-content;
   height: fit-content;
+  cursor: pointer;
 }
 .caruselContainer .titleCarusel .ShowAll span {
   font-size: 15px;
@@ -138,5 +139,35 @@
 @media ((min-width: 100px) and (max-width: 1101px)) {
   .weblogContainer {
     display: none;
+  }
+}
+
+.homeImageContainer_one {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 3.5%;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-bottom: 5%;
+}
+@media ((min-width: 100px) and (max-width: 800px)) {
+  .homeImageContainer_one {
+    flex-direction: column;
+    gap: 5%;
+  }
+}
+
+.SingleImage_homeImages {
+  position: relative;
+  margin-bottom: 3.5%;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 100%;
+}
+@media ((min-width: 320px) and (max-width: 1000px)) {
+  .SingleImage_homeImages {
+    margin-top: 2%;
+    margin-bottom: 4%;
   }
 }/*# sourceMappingURL=ProductCarusel.module.css.map */

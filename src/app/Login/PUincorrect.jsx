@@ -2,11 +2,12 @@ import React from "react";
 import styles from "./PUincorrect.module.css";
 import { PiSealWarningDuotone } from "react-icons/pi";
 
-const PUincorrect = () => {
+const PUincorrect = ({ErrorMessage , searchParamsStyle}) => {
   return (
     <div className={styles.inc}>
       <PiSealWarningDuotone className={styles.PiSealWarning}/>
-      <span> نام کاربری یا رمزعبور نادرست است</span>
+      {searchParamsStyle ? <p className={styles.errorMessage}>{ErrorMessage}</p> :  <span> {ErrorMessage}</span>}
+     
     </div>
   );
 };

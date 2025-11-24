@@ -1,14 +1,16 @@
 "use client";
-import React from "react";
+import React, { useTransition } from "react";
 import styles from "./FooterData.module.scss";
 import { FiPhone } from "react-icons/fi";
 import { CgMail } from "react-icons/cg";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import Loading from "../Loading/Loading";
 
 const FooterData = () => {
   const rout = useRouter();
+  
   const mobileLink = (props) => {
     rout.push(`/Product/categoryType/${props}/?class=mobile`);
   };
@@ -21,8 +23,16 @@ const FooterData = () => {
   const handsfreeLink = (props) => {
     rout.push(`/Product/categoryType/${props}/?class=handsfree`);
   };
+
+  const [isPending, startTransition] = useTransition();
+  const Link = (url) => {
+    startTransition(() => {
+      rout.push(url);
+    });
+  };
   return (
-    <div >
+    <aside>
+      {isPending && <Loading/>}
       <div className={styles.footerData}>
         <div className={styles.rightSideFooter}>
           <div className={styles.Addresses}>
@@ -42,22 +52,26 @@ const FooterData = () => {
             <h3>دسترسی سریع</h3>
             <ul>
               <li>
-                <div onClick={() => mobileLink("سامسونگ")}>گوشی سامسونگ</div>
+                <div onClick={() => Link("Product/categoryType/سامسونگ/?class=mobile")}>گوشی سامسونگ</div>
               </li>
               <li>
-                <div onClick={() => mobileLink("اپل")}>گوشی آیفون</div>
+                <div onClick={() => Link("Product/categoryType/اپل/?class=mobile")}>گوشی آیفون</div>
               </li>
               <li>
-                <div onClick={() => mobileLink("شیائومی")}>گوشی شیائومی</div>
+                <div onClick={() => Link("Product/categoryType/شیائومی/?class=mobile")}>گوشی شیائومی</div>
               </li>
               <li>
-                <Link href="/Product/Class/laptop">قیمت لپ تاپ</Link>
+                <div onClick={() => Link("/Product/Class/laptop")}>
+                  قیمت لپ تاپ
+                </div>
               </li>
               <li>
-                <Link href="/Product/Class/handsfree">هندزفری </Link>
+                <div onClick={() => Link("/Product/Class/handsfree")}>
+                  هندزفری{" "}
+                </div>
               </li>
               <li>
-                <div onClick={() => laptopLink("ایسوس")}>لپ تاپ ایسوس</div>
+                <div onClick={() => Link("/Product/categoryType/ایسوس/?class=laptop") }>لپ تاپ ایسوس</div>
               </li>
             </ul>
           </div>
@@ -65,19 +79,21 @@ const FooterData = () => {
             <h3>پرفروش ترین محصولات</h3>
             <ul>
               <li>
-                <div onClick={() => tabletLink("سامسونگ")}>تبلت سامسونگ</div>
+                <div onClick={() => Link("/Product/categoryType/سامسونگ/?class=tablet")}>تبلت سامسونگ</div>
               </li>
               <li>
-                <div onClick={() => laptopLink("مک بوک")}>مک بوک</div>
+                <div onClick={() =>Link("/Product/categoryType/مک بوک/?class=laptop")}>مک بوک</div>
               </li>
               <li>
-                <Link href="/Product/Class/smartWatch">ساعت هوشمند</Link>
+                <div onClick={() => Link("/Product/Class/smartWatch")}>
+                  ساعت هوشمند
+                </div>
               </li>
               <li>
-                <Link href="/Product/Class/console">کنسول</Link>
+                <div onClick={() => Link("/Product/Class/console")}>کنسول</div>
               </li>
               <li>
-                <div onClick={() => handsfreeLink("اپل")}>Airpods</div>
+                <div onClick={() => Link("/Product/categoryType/اپل/?class=handsfree") }>Airpods</div>
               </li>
             </ul>
           </div>
@@ -121,8 +137,7 @@ const FooterData = () => {
         </div>
         <div className={styles.symbolImage}>
           <Image
-
-          className={styles.NationalSymbol}
+            className={styles.NationalSymbol}
             width={35}
             height={50}
             alt=""
@@ -137,7 +152,7 @@ const FooterData = () => {
         <span>۱۴۰۳</span>
         <p>تمامی حقوق مادی و معنوی این سایت متعلق به Rj Land می‌باشد.</p>
       </div>
-    </div>
+    </aside>
   );
 };
 

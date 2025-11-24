@@ -9,7 +9,7 @@ const Color = ({ colorID }) => {
     setColor(allColor);
   };
   return (
-    <div>
+    <section>
       <div className={styles.colorContainer}>
         <div className={styles.showColorContainer}>
           <span className={styles.showColorTitle}>رنگ :</span>
@@ -49,7 +49,7 @@ const Color = ({ colorID }) => {
        
       </div>
 
-    </div>
+    </section>
   );
 };
 

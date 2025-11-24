@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useTransition } from "react";
 import styles from "./CommentsSection.module.scss";
 import { BiPlus, BiMessageDots } from "react-icons/bi";
 import { AiOutlineCloseCircle } from "react-icons/ai";
@@ -9,12 +9,13 @@ import { useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
 import { LuSquareUserRound } from "react-icons/lu";
 import { jwtDecode } from "jwt-decode";
+import Loading from "../Loading/Loading";
 
 const CommentsSection = ({ PrdData, PrdId }) => {
   const [showComment, setShowComment] = useState(false);
   const jwt = useSelector((state) => state.Users);
   const [jwtData, setJwtData] = useState();
-
+const [isPending , startTransition]=useTransition()
   useEffect(() => {
     if (jwt.token) {
       setJwtData(jwtDecode(jwt.token).username);
@@ -29,7 +30,10 @@ const CommentsSection = ({ PrdData, PrdId }) => {
     if (jwt.token) {
       setShowComment(!showComment);
     } else {
-      rout.push("/Login");
+      startTransition(()=>{
+
+        rout.push("/Login?comment=true");
+      })
     }
   };
 
@@ -49,7 +53,8 @@ const CommentsSection = ({ PrdData, PrdId }) => {
 
   return (
     <>
-      <div className={styles.commentsSectionContainer}>
+    {isPending && <Loading/>}
+      <section className={styles.commentsSectionContainer}>
         <div className={styles.rightSideCommentsSection}>
           <div className={styles.title}>
             <span> •</span>
@@ -133,7 +138,7 @@ const CommentsSection = ({ PrdData, PrdId }) => {
             </div>
           </div>
         )}
-      </div>
+      </section>
       {localStorage.getItem("Comment") === null ? null : (
         <div className={styles.contentCommentsContainer}>
           {PrdData.id === JSON.parse(localStorage.getItem("Comment")).id ? (

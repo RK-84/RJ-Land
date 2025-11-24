@@ -3,7 +3,7 @@ import Link from "next/link";
 import styles from "./notFound.module.css";
 export default function NotFound() {
   return (
-    <div className={styles.container}>
+    <main className={styles.container}>
       <div className={styles.imgNotFound}>
         <Image
           src="/images/notFound.png"
@@ -16,6 +16,6 @@ export default function NotFound() {
           <Link className={styles.returnHomeLink} href="/">بازگشت به صفحه اصلی</Link>
         </div>
       </div>
-    </div>
+    </main>
   );
 }

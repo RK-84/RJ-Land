@@ -3,7 +3,7 @@ import styles from "./NonExistentCard.module.scss";
 import Image from "next/image";
 const NonExistentCard = ({ product }) => {
   return (
-    <div className={styles.mainContainer}>
+    <main className={styles.mainContainer}>
       <div className={styles.container}>
         <Image
           className={styles.PrdImage}
@@ -31,7 +31,7 @@ const NonExistentCard = ({ product }) => {
         <div className={styles.line2}></div>
        
       </div>
-    </div>
+    </main>
   );
 };
 

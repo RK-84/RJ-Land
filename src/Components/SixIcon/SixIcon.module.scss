@@ -23,15 +23,18 @@
         padding: 6% 0;
 
     }
-@include Media(320px,600px ){
-    display: grid ;
-    grid-template-columns: repeat(3, 1fr) ;
-    grid-template-rows: repeat(2, 1fr) ;
-    gap: 20px;
-}
+
+    @include Media(320px, 600px) {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 20px;
+    }
+
     .sixIcon {
         margin: 0 auto;
         width: 100%;
+        cursor: pointer;
 
         .sixIconLink {
             text-decoration: none;

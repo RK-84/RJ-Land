@@ -16,7 +16,7 @@
 }
 @media ((min-width: 320px) and (max-width: 500px)) {
   .imageSlider {
-    height: 145px !important;
+    height: 155px !important;
   }
 }
 @media ((min-width: 500px) and (max-width: 700px)) {
@@ -27,9 +27,9 @@
 
 .dots {
   direction: rtl !important;
-  text-align: unset;
+  text-align: unset !important;
   width: 97.5% !important;
-  bottom: 7%;
+  bottom: 7% !important;
 }
 @media ((min-width: 700px) and (max-width: 1000px)) {
   .dots {

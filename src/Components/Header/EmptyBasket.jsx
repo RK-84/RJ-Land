@@ -2,7 +2,7 @@ import React from 'react'
 import styles from "./EmptyBasket.module.css"
 const EmptyBasket = () => {
   return (
-    <div>
+    <section>
       <div className={styles.EmptyBasketContainer}>
         <p>سبد خرید</p>
         <span>(</span>
@@ -11,7 +11,7 @@ const EmptyBasket = () => {
           <span>)</span>
 
       </div>
-    </div>
+    </section>
   )
 }
 

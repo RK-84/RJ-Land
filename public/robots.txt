@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# جلوگیری از ایندکس صفحه‌های غیر مفید
+Disallow: /login
+Disallow: /signup
+Disallow: /HFLayout
+Disallow: /profile
+Disallow: /shoppingCart
+
+Sitemap: https://rjland.ir/sitemap.xml

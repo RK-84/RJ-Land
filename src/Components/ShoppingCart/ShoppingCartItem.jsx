@@ -7,10 +7,11 @@ import RemoveProduct from "./RemoveProduct";
 import { PiSealCheck } from "react-icons/pi";
 import { BsShopWindow } from "react-icons/bs";
 import Link from "next/link";
+import { TransitionWrapper } from "../Loading/TransitionWrapper";
 
 const ShoppingCartItem = ({ Product }) => {
   return (
-    <div className={styles.mainContainer}>
+    <main className={styles.mainContainer}>
       <div
         className={
           Product.incredibleOffers === true
@@ -30,9 +31,12 @@ const ShoppingCartItem = ({ Product }) => {
       </div>
       <div className={styles.container}>
         <div className={styles.productNSContainer}>
-          <Link href={`/Product/${Product.id}`} className={styles.productName}>
-            <p>{Product.name}</p>
-          </Link>
+          <TransitionWrapper href={`/Product/${Product.id}`}>
+            <div className={styles.productName}>
+              <p>{Product.name}</p>
+            </div>
+          </TransitionWrapper>
+
           <div className={styles.sellerContainer}>
             <div className={styles.warranty}>
               <PiSealCheck className={styles.iconShop} />
@@ -54,7 +58,7 @@ const ShoppingCartItem = ({ Product }) => {
           </div>
         </div>
         <div className={styles.productImage}>
-          <Link href={`/Product/${Product.id}`}>
+          <TransitionWrapper href={`/Product/${Product.id}`}>
             <Image
               priority
               width={216}
@@ -62,7 +66,7 @@ const ShoppingCartItem = ({ Product }) => {
               alt={Product.name}
               src={Product.indexImageUrl}
             />
-          </Link>
+          </TransitionWrapper>
         </div>
       </div>
 
@@ -115,7 +119,7 @@ const ShoppingCartItem = ({ Product }) => {
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 

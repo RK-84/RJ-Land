@@ -90,6 +90,7 @@ $ShText : rgb(34 60 120/1);
             text-decoration: none;
             color: $ShText;
             height: fit-content;
+            cursor: pointer;
 
             span {
                 font-size: 15px;
@@ -162,5 +163,36 @@ $ShText : rgb(34 60 120/1);
 
     @include Media(100px, 1101px) {
         display: none;
+    }
+}
+
+.homeImageContainer_one {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 3.5%;
+    height: fit-content;
+    margin-bottom: 5%;
+
+    @include Media(100px, 800px) {
+        flex-direction: column;
+        gap: 5%;
+
+    }
+}
+
+.SingleImage_homeImages {
+
+
+    position: relative;
+
+    margin-bottom: 3.5%;
+    height: fit-content;
+    width: 100%;
+
+    @include Media(320px, 1000px) {
+        margin-top: 2%;
+        margin-bottom: 4%;
+
     }
 }

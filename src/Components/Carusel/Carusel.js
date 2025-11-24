@@ -74,7 +74,7 @@ const clickHandler=()=>{
   setShowLoading(true)
 }
   return (  
-    <>
+    <main>
     {showLoading && <Loading/>}
     <Slider
       {...settings}
@@ -91,7 +91,7 @@ const clickHandler=()=>{
         </div>
       ))}
     </Slider>
-      </>
+      </main>
   );
 };
 

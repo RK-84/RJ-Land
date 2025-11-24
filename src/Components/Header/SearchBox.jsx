@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useTransition } from "react";
 import styles from "./SearchBox.module.css";
 import { CiSearch } from "react-icons/ci";
 import { useRouter } from "next/navigation";
@@ -14,21 +14,21 @@ const SearchBox = () => {
     setTextSearch(e.target.value);
     e.preventDefault();
   };
-  const [showLoading, setShowLoading] = useState(false);
+
+  const [isPending, startTransition] = useTransition();
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
-      rout.push(`/search/${textSearch}`);    
-      setShowLoading(true);
+      startTransition(() => {
+        rout.push(`/search/${textSearch}`); 
+      });
     }
-setTimeout(() => {
-  setShowLoading(false)
-}, 900);
+
   };
   return (
     <>
-      {showLoading && <Loading />}
-      <div className={styles.searchBoxContainer}>
+      {isPending  && <Loading />}
+      <section className={styles.searchBoxContainer}>
         <CiSearch className={styles.searchIcon} />
 
         <input
@@ -39,7 +39,7 @@ setTimeout(() => {
           value={textSearch}
           placeholder="محصول ، برند  یا  دسته مورد  نظرتان  را  جستجو  کنید"
         />
-      </div>
+      </section>
     </>
   );
 };

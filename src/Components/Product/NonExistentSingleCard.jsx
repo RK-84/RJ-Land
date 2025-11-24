@@ -12,7 +12,7 @@ import { NonexistentNotificationToast } from "./Toast";
 
 const NonExistentSingleCard = ({ data, category }) => {
   return (
-    <div>
+    <main>
       <div className={styles.mainContainer}>
         <div className={styles.dataProductContainer}>
           <div className={styles.descriptionContainer}>
@@ -36,7 +36,7 @@ const NonExistentSingleCard = ({ data, category }) => {
                   <h3 className={styles.mainFeatures}>ویژگی‌های اصلی</h3>
                   <div className={styles.attributeContainer}>
                     {data.attribute.map((item) => {
-                      return <ProductAttribute Att={item} />;
+                      return <ProductAttribute Att={item} key={item.id}/>;
                     })}
                   </div>
                 </div>
@@ -109,7 +109,7 @@ const NonExistentSingleCard = ({ data, category }) => {
           <InformationBar Att={data.attribute} data={data} stock={0} />
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 

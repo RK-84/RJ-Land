@@ -8,6 +8,7 @@
     border-radius: 7px;
     width: 150px;
     height: 40px;
+    cursor: pointer;
 }
 
 .link {
@@ -37,6 +38,7 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    cursor: pointer;
 }
 
 .userIcon {

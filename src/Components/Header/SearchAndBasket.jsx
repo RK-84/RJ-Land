@@ -24,7 +24,7 @@ const SearchAndBasket = () => {
     }
   };
   return (
-    <div className={styles.searchAndBasketContainer}>
+    <section className={styles.searchAndBasketContainer}>
       <div onClick={() => setShowSearch(!showSearch)}>
         <FiSearch className={styles.Icon} />
       </div>
@@ -52,7 +52,7 @@ const SearchAndBasket = () => {
           </div>
         </div>
       )}
-    </div>
+    </section>
   );
 };
 

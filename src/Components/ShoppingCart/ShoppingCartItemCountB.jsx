@@ -15,7 +15,7 @@ const ShoppingCartItemCountB = ({ PrdId }) => {
   const Xcount = selector.items.filter((item) => item.id === PrdId)[0].count;
   const dispatch = useDispatch();
   return (
-    <div className={styles.container}>
+    <section className={styles.container}>
       <div className={styles.counter}>
         <div className={styles.counterComponents}>
           <LuPlus onClick={() => dispatch(increaceItem(PrdId))} />
@@ -33,7 +33,7 @@ const ShoppingCartItemCountB = ({ PrdId }) => {
           </div>
         )}
       </div>
-    </div>
+    </section>
   );
 };
 export default ShoppingCartItemCountB;

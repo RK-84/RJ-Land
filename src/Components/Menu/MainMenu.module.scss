@@ -21,10 +21,12 @@ $textColor: #5e5e5e;
     align-items: center;
     gap: 25px;
     border-bottom: 1px solid #daddde;
-@include Media(100px,1000px){
-    display: none;
 
-}
+    @include Media(100px, 1000px) {
+        display: none;
+
+    }
+
     .productCategoriesContainer {
 
         width: 160px;
@@ -61,12 +63,10 @@ $textColor: #5e5e5e;
 
     }
 
-    .offContainer {
-
-
+    .headerTitles {
         display: flex;
         align-items: center;
-
+        cursor: pointer;
         color: #909394;
         text-decoration: none;
         width: fit-content;
@@ -84,9 +84,6 @@ $textColor: #5e5e5e;
         }
     }
 
-    .bestSellers {
-        @extend .offContainer;
-    }
 }
 
 

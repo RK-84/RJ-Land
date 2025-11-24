@@ -13,7 +13,7 @@ const LowerPart = () => {
   const jwt = useSelector((state) => state.Users);
 
   return (
-    <div className={styles.lowerPartContainer}>
+    <footer className={styles.lowerPartContainer}>
       <Link href="/" className={styles.lowerPart}>
         <HiHome className={styles.icon} />
 
@@ -48,7 +48,7 @@ const LowerPart = () => {
           </Link>
         </div>
       )}
-    </div>
+    </footer>
   );
 };
 

@@ -37,7 +37,7 @@ const CarouselSlider = ({ imageSlider }) => {
           if (item.id === 3 || item.id === 7 || item.id === 107) {
             return (
               <Link href={`/Product/Class/${item.name}`} key={item.id}>
-                <div onClick={()=>setShowLoading(true)} className={styles.sliderContainer}>
+                <section onClick={()=>setShowLoading(true)} className={styles.sliderContainer}>
                   <Image
                     priority
                     className={styles.imageSlider}
@@ -46,12 +46,12 @@ const CarouselSlider = ({ imageSlider }) => {
                     fill
                     sizes="100%"
                   />
-                </div>
+                </section>
               </Link>
             );
           } else {
             return (
-              <div
+              <section
                 key={item.id}
                 className={styles.sliderContainer}
                 onClick={() => clickHandler(item.name)}
@@ -64,7 +64,7 @@ const CarouselSlider = ({ imageSlider }) => {
                   sizes="100%"
                   fill
                 />
-              </div>
+              </section>
             );
           }
         })}
