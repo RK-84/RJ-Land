@@ -15,7 +15,6 @@ export default function ResumePage() {
   return (
     <main className={styles.container}>
       <div className={styles.resumeWrapper}>
-        {/* Resume Preview */}
         <div className={styles.resumePreview}>
           <Image
             src="/resume/resume.png"
@@ -44,7 +43,6 @@ export default function ResumePage() {
           </button>
         </div>
 
-        {/* Resume Link */}
         <Link
           href="https://drive.google.com/file/d/1JA8XZvtrvRig5UON6-fZHqJAVU28kpLZ/view?usp=drive_link"
           target="_blank"

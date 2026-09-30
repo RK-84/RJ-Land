@@ -17,7 +17,6 @@
   gap: 32px;
 }
 
-/* Resume image container */
 
 .resumePreview {
   position: relative;
@@ -41,7 +40,6 @@
     filter 0.35s ease;
 }
 
-/* Download overlay */
 
 .resumeDownload {
   position: absolute;
@@ -80,7 +78,6 @@
   transition: transform 0.3s ease;
 }
 
-/* Hover effects */
 
 .resumePreview:hover .resumeDownload,
 .resumePreview:focus-within .resumeDownload {
@@ -106,7 +103,6 @@
   outline-offset: -6px;
 }
 
-/* Online resume link */
 
 .resumeLink {
   display: inline-flex;
@@ -150,7 +146,6 @@
   line-height: 1;
 }
 
-/* Responsive design */
 
 @media (max-width: 768px) {
   .container {
@@ -203,7 +198,6 @@
   }
 }
 
-/* Devices without hover, such as touchscreens */
 
 @media (hover: none) {
   .resumeDownload {
