@@ -19,7 +19,7 @@ const schema = {
   },
 };
 export const metadata = {
-  metadataBase: new URL("https://rjland.ir"),
+  // metadataBase: new URL("https://rjland.ir"),
   icons: {
     icon: "/favicon.png",
     shortcut: "/favicon.png",
@@ -67,7 +67,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <script
+        {/* <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(schema),
@@ -84,7 +84,7 @@ export default function RootLayout({ children }) {
   "image": "https://rjland.ir/logo-search.png"
 }
 `}
-        </script>
+        </script> */}
 
         <meta charSet="UTF-8" />
         <meta

@@ -1,26 +1,43 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+
 
   reactStrictMode: true,
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "*.digikala.com",
-        port: "",
-        pathname: "/**",
-      },
+    unoptimized: true,
 
-      {
-        protocol: "https",
-        hostname: "*.technolife.ir",
-        port: "",
-        pathname: "/**",
-      },
-    ],
+    // remotePatterns: [
+    //   {
+    //     protocol: "https",
+    //     hostname: "*.digikala.com",
+    //     port: "",
+    //     pathname: "/**",
+    //   },
+    //   {
+    //     protocol: "https",
+    //     hostname: "*.digikala.ir",
+    //     port: "",
+    //     pathname: "/**",
+    //   },
+    //   {
+    //     protocol: "https",
+    //     hostname: "*.technolife.ir",
+    //     port: "",
+    //     pathname: "/**",
+    //   },
+    //   {
+    //     protocol: "https",
+    //     hostname: "*.technolife.com",
+    //     port: "",
+    //     pathname: "/**",
+    //   },
+    //   {
+    //     protocol: "https",
+    //     hostname: "*.rjland.ir",
+    //     port: "",
+    //     pathname: "/**",
+    //   },
+    // ],
   },
 };
 

@@ -5,7 +5,7 @@ import * as repository from "../../../RestConfig/RestRequest";
 import SixIcon from "@/Components/SixIcon/SixIcon";
 import { Suspense } from "react";
 import MainSlider from "@/Components/Slider/MainSlider";
-import Script from "next/script";
+
 
 
 async function getAllProduct() {
@@ -31,24 +31,6 @@ export default async function Home() {
   const homeImages = await getAllHomeImages();
   return (
     <>
-    <Script
-        id="ld-json-home"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Store",
-            name: "RJLand",
-            url: "https://rjland.ir",
-            description:
-              "فروشگاه اینترنتی خرید گوشی موبایل، لوازم جانبی موبایل، ساعت هوشمند و هندزفری با بهترین قیمت.",
-            logo: "/logo/rjLogo.png",
-            sameAs: [
-              "https://instagram.com/rezj_iv",
-            ],
-          }),
-        }}
-      />
       <Suspense>
         <MainSlider/>
       </Suspense>
